@@ -1,0 +1,28 @@
+<?php
+include("dbconnect.php");
+
+$alt=$_POST['altweg'];
+
+$ausaccounts = "DELETE FROM `henrydatei`.`accounts` WHERE `accounts`.`displayed_name` = '$alt'";
+$ausmaindb = "ALTER TABLE `alts` DROP `$alt`";
+$today = date("Y-m-d");
+$sql = "SELECT * FROM `accounts` WHERE `displayed_name` = '$alt'";
+$back = mysqli_query($db,$sql);
+$row = mysqli_fetch_array($back);
+$username = $row['username'];
+$password = $row['password'];
+$into_remove_db = "INSERT INTO `removed_alts` (`id`, `username`, `password`, `displayed_name`, `date`) VALUES (NULL, '$username', '$password', '$alt', '$today');";
+
+print $ausaccounts;
+print "<br />";
+print $ausmaindb;
+print "<br />";
+print $into_remove_db;
+print "<br />";
+
+mysqli_query($db,$ausaccounts);
+mysqli_query($db,$ausmaindb);
+mysqli_query($db,$into_remove_db);
+
+print "Alt $alt erfolgreich gel&ouml;scht";
+?>
