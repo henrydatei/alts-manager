@@ -1,5 +1,6 @@
 <?php
 include("dbconnect.php");
+include("functions.php");
 
 $alts=array();
 $namen=mysqli_query($db, "DESCRIBE `alts` ");
@@ -8,80 +9,8 @@ while($infos=mysqli_fetch_array($namen)) {
 }
 $anzahl=count($alts);
 
-$handle=fopen("data/friends.json", w);
-for ($a=0; $a<($anzahl-2) ; $a++) {
-	$inhalt=$alts[$a].":".$alts[$a];
-	fwrite($handle, $inhalt);
-	fwrite($handle, "\n");
-}
-
-fwrite($handle, "Tarummel:Tarummel");
-fwrite($handle, "\n");
-fwrite($handle, "The_MaximusVA:The_MaximusVA");
-fwrite($handle, "\n");
-
-fclose($handle);
-?>
-
-
-<!-- Altlist-Generator -->
-<?php
-//Arrays generieren
-$accName=array();
-$accLogin=array();
-$accPwd=array();
-//Angezeigten Namen in Array auslesen
-$query = mysqli_query($db, "SELECT displayed_name FROM accounts");
-while($row = mysqli_fetch_array($query))
-{
-   $accName[] = $row['displayed_name'];
-}
-//Login (E-mail) in Array auslesen
-$query2 = mysqli_query($db, "SELECT username FROM accounts");
-while($row = mysqli_fetch_array($query2))
-{
-   $accLogin[] = $row['username'];
-}
-//Passwort in Array auslesen
-$query3 = mysqli_query($db, "SELECT password FROM accounts");
-while($row = mysqli_fetch_array($query3))
-{
-   $accPwd[] = $row['password'];
-}
-//Anzahl-Variable
-$accCount=count($accLogin);
-
-$handle2=fopen("data/accounts.json", w);
-fwrite($handle2, "[");
-fwrite($handle2, "\n");
-
-fwrite($handle2, "\"MsBrony::\",");
-fwrite($handle2,"\n");
-
-for ($a=0; $a<=($accCount-1) ; $a++) {
-	//$inhalt2="  ".$accLogin[$a].":".$accPwd[$a].":".$accName[$a].",";
-	$inhalt2 = "  \"$accLogin[$a]:$accPwd[$a]:$accName[$a]\",";
-
-	if ($a==($accCount-1)) {
-		$inhalt2 = substr($inhalt2,0,-1);
-	}
-
-	fwrite($handle2, $inhalt2);
-	fwrite($handle2, "\n");
-}
-
-fwrite($handle2, "]");
-fclose($handle2);
-
-//altliste zum regelmaessigen Probieren erstellen
-$handle3=fopen("altliste.txt", w);
-for ($b=0; $b<=($accCount-1) ; $b++) {
-	//$inhalt3= accLogin:accPwd
-	$inhalt3 = "$accLogin[$b]:$accPwd[$b] \n";
-	fwrite($handle3, $inhalt3);
-}
-fclose($handle3);
-
+// Listen erzeugen
+include("create_lists.php");
 ?>
 
 <!-- Username und Passwort in Array schreiben für TH-Zellen -->
@@ -97,26 +26,7 @@ while ($zeilen = mysqli_fetch_object($zugangsdaten)) {
 		$benutzer[] = $zeilen->username;
 		$passwoerter[] = $zeilen->password;
 }
- ?>
-
-<!-- Funktion für eine schoene Ausgabe der gesamten Banzeit-->
-<?php
-function sekundentoalles($zeitInSekunden) {
-	if($zeitInSekunden >= 86400) {
-		$anzahlTage = ($zeitInSekunden - $zeitInSekunden%86400)/86400;
-		$zeitInSekunden = $zeitInSekunden - $anzahlTage * 86400;
-	}
-	if($zeitInSekunden >= 3600) {
-		$anzahlStunden = ($zeitInSekunden - $zeitInSekunden%3600)/3600;
-		$zeitInSekunden = $zeitInSekunden - $anzahlStunden * 3600;
-	}
-	if($zeitInSekunden >= 60) {
-		$anzahlMinuten = ($zeitInSekunden - $zeitInSekunden%60)/60;
-		$zeitInSekunden = $zeitInSekunden - $anzahlMinuten * 60;
-	}
-	return "$anzahlTage Tage, $anzahlStunden Stunden, $anzahlMinuten Minuten und $zeitInSekunden Sekunden";
-}
- ?>
+?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
@@ -279,31 +189,14 @@ function sekundentoalles($zeitInSekunden) {
 						print "<tr>";
 						for($j=0;$j<=($anzahl-3);$j++) {
 							$jetzt=$alts[$j];
-							$werta=$row[$jetzt];
-								if($werta=="") {
-									$ausgabea="frei";
-									$bgcolora="#00FF00";
-									$anzahlFrei = $anzahlFrei +1;
-								}
-								if($werta=="9999-12-31 23:59:59") {
-									$ausgabea="Permanent gebannt";
-									$bgcolora="#FF0000";
-									$anzahlPermaBans = $anzahlPermaBans +1;
-								}
-								if($werta!='' && $werta!="9999-12-31 23:59:59") {
-									$getrennta=explode(' ', $werta);
-									$datuma=explode('-', $getrennta[0]);
-									$uhrzeita=explode(':', $getrennta[1]);
-									$ausgabea=$datuma[2].'.'.$datuma[1].'.'.$datuma[0].' '.$uhrzeita[0].':'.$uhrzeita[1].':'.$uhrzeita[2];
-									$bgcolora="#FFFF00";
-									$anzahlTempBans = $anzahlTempBans +1;
-									$gesamteTempBanZeit = $gesamteTempBanZeit + abs(strtotime($werta) - time());
-
-									$zeiten[]=strtotime($werta);
-									$zeitenalts[]=$jetzt;
-									$zeitenserver[]=$row['server'];
-								}
-								print "<td style=\"background-color: $bgcolora;\" id=\"zelle\">$ausgabea</td>";
+							$rueckgabe = banZelle($row[$jetzt]);
+							print "<td style=\"background-color: $rueckgabe[0];\" id=\"zelle\">$rueckgabe[1]</td>";
+							if ($rueckgabe[2] == 2) {
+								// Alt nur temp gebannt -> zum Array hinzufügen, damit dies später die nächsten Entbannungen anzeigen kann
+								$zeiten[] = strtotime($row[$jetzt]);
+						    $zeitenalts[] = $jetzt;
+						    $zeitenserver[] = $row['server'];
+							}
 						}
 						$srvr=$row['server'];
 						print "<td><b>$srvr</b></td>";
@@ -380,7 +273,7 @@ function sekundentoalles($zeitInSekunden) {
 				</p>
 				<span style="text-align: center"><h3>Tastaturbelegung</h3></span>
 				<img src="KB.png" alt="" width="80%">
-				
+
 				<p></p>
 				<p></p>
 				<p></p>
