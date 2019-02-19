@@ -19,13 +19,11 @@ function banZelle($time) {
   if($time == "") {
     $ausgabe = "frei";
     $color = "#00FF00";
-    $anzahlFrei = $anzahlFrei + 1;
     $code = 0;
   }
   if($time == "9999-12-31 23:59:59") {
     $ausgabe = "Permanent gebannt";
     $color = "#FF0000";
-    $anzahlPermaBans = $anzahlPermaBans + 1;
     $code = 2;
   }
   if($time != "" && $time != "9999-12-31 23:59:59") {
@@ -34,8 +32,6 @@ function banZelle($time) {
     $uhrzeit = explode(':', $getrennt[1]);
     $ausgabe = $datum[2].'.'.$datum[1].'.'.$datum[0].' '.$uhrzeit[0].':'.$uhrzeit[1].':'.$uhrzeit[2];
     $color = "#FFFF00";
-    $anzahlTempBans = $anzahlTempBans + 1;
-    $gesamteTempBanZeit = $gesamteTempBanZeit + abs(strtotime($time) - time());
     $code = 1;
   }
   $return = array($color, $ausgabe, $code);

@@ -119,6 +119,7 @@ include("create_lists.php");
   		</div>
 
       <?php
+			// Entbannung von abgelaufenen Bans
       for ($i = 0; $i < $anzahl-3; $i++) {
         // einmal durch alle Alts laufen
         $serverid = 0;
@@ -141,7 +142,27 @@ include("create_lists.php");
           $serverid++;
         }
       }
-       ?>
+      ?>
+
+			<?php
+			// Message nachdem neuner Bann eingetragen wurde: Gelb: temporär, Rot: permanent
+			$gebannterAlt = $_GET['alt'];
+			$gebannterServer = $_GET['server'];
+			$permanent = $_GET['perma'];
+			if ($permanent == 1) {
+				// permanenter Bann -> rote Box
+				print "<div class=\"permanent\">";
+				print "$gebannterAlt wurde auf $gebannterServer permanent gebannt.";
+				print "</div>";
+			}
+			if ($permanent === "0") {
+				// temporaerer Bann -> gelbe Box
+				print "<div class=\"temporaer\">";
+				print "$gebannterAlt wurde auf $gebannterServer temporär gebannt.";
+				print "</div>";
+			}
+
+			?>
 
       <div id="text" align="center">
         <table id="bantabelle" align="center">
@@ -154,21 +175,128 @@ include("create_lists.php");
   					?>
           </tr>
           <?php
+					$zeiten = array();
+					$zeitenserver = array();
+					$zeitenalts = array();
+					$anzahlTempBans = 0;
+					$anzahlPermaBans = 0;
+					$gesamteTempBanZeit = 0;
+					$anzahlFrei = 0;
           for ($i = 0; $i < $anzahl-3; $i++) {
             // einmal durch alle Alts laufen
-            $sql = "SELECT `$alts[$i]` FROM `alts`";
+            $sql = "SELECT `$alts[$i]`,`server` FROM `alts`";
             $back = mysqli_query($db, $sql);
             print "<tr>";
             print "<td>$alts[$i]</td>";
             while ($row = mysqli_fetch_array($back)) {
               $banZelle = banZelle($row[$alts[$i]]);
               print "<td style=\"background-color: $banZelle[0];\" id=\"zelle\">$banZelle[1]</td>";
+							if ($banZelle[2] == 1) {
+								// Alt nur temp gebannt -> zum Array hinzufügen, damit dies später die nächsten Entbannungen anzeigen kann
+								$zeiten[] = strtotime($row[$alts[$i]]);
+						    $zeitenalts[] = $alts[$i];
+						    $zeitenserver[] = $row['server'];
+
+								$anzahlTempBans = $anzahlTempBans + 1;
+								$gesamteTempBanZeit = $gesamteTempBanZeit + abs(strtotime($row[$alts[$i]]) - time());
+							}
+							if ($banZelle[2] == 0) {
+								$anzahlFrei = $anzahlFrei + 1;
+							}
+							if ($banZelle[2] == 2) {
+								$anzahlPermaBans = $anzahlPermaBans + 1;
+							}
             }
             print "</tr>";
           }
            ?>
         </table>
       </div>
+
+			<section>
+				<div class="ueberschrift">
+					<h3>nächste Entbannungen</h3>
+				</div>
+				<div class="section_text">
+					<?php
+					asort($zeiten);
+					for ($k=0; $k < 5; $k++) {
+							$bannummer = key($zeiten);
+							$endpunkt = date("d.m.Y H:i:s", $zeiten[$bannummer]);
+							$banserver = $zeitenserver[$bannummer];
+							$banalt = $zeitenalts[$bannummer];
+							print "$banalt ist noch bis zum $endpunkt vom Server $banserver gebannt. <br>";
+							next($zeiten);
+					}
+					?>
+				</div>
+			</section>
+
+			<section>
+				<div class="ueberschrift">
+					<h3>Stats über unsere Alts</h3>
+				</div>
+				<div class="section_text">
+					<table align="center">
+						<tr>
+							<td>Anzahl freie Pl&auml;tze:</td>
+							<td><?php print $anzahlFrei; ?></td>
+						</tr>
+						<tr>
+							<td>Anzahl Temp-Bans:</td>
+							<td><?php print $anzahlTempBans; ?></td>
+						</tr>
+						<tr>
+							<td>restliche Banzeit:</td>
+							<td><?php print sekundentoalles($gesamteTempBanZeit); ?></td>
+						</tr>
+						<tr>
+							<td>Anzahl Perma-Bans:</td>
+							<td><?php print $anzahlPermaBans; ?></td>
+						</tr>
+					</table>
+				</div>
+			</section>
+
+			<section>
+				<div class="ueberschrift">
+					<h3>Updater-Skripts</h3>
+				</div>
+				<div class="section_text">
+					<p>
+						<a href="http://henrydatei.bplaced.net/alts/lb.exe" target="_blank">vollständiger 1.8.x Installer / Updater (Windows)</a> (Passwort für Alts: "henrydatei")<br>
+						<a href="http://henrydatei.bplaced.net/alts/lb12.exe" target="_blank">vollständiger 1.12.x Installer / Updater (Windows)</a> (Passwort für Alts: "henrydatei")<br>
+						<a href="http://henrydatei.bplaced.net/alts/updateWin.exe" target="_blank">Updater für die Konfigurationsdateien 1.8.x (Windows)</a><br>
+						<a href="http://henrydatei.bplaced.net/alts/updateWin12.exe" target="_blank">Updater für die Konfigurationsdateien 1.12.x (Windows)</a>
+					</p>
+					<p>
+						<a href="http://henrydatei.bplaced.net/alts/LB_update_mac_1.8.9.sh" target="_blank">Updater für die Konfigurationsdateien 1.8.x (Mac)</a>
+					</p>
+					<p>
+						<a href="http://henrydatei.bplaced.net/alts/LB_update_linux_1.8.9.sh" target="_blank">Updater für die Konfigurationsdateien 1.8.x (Linux)</a><br>
+						<a href="http://henrydatei.bplaced.net/alts/LB_update_linux_1.12.2.sh" target="_blank">Updater für die Konfigurationsdateien 1.12.x (Linux)</a>
+					</p>
+				</div>
+			</section>
+
+			<section>
+				<div class="ueberschrift">
+					<h3>Tastaturbelegung</h3>
+				</div>
+				<div class="section_text">
+					<img src="KB.png" alt="Tastaturbelegung" width="80%">
+				</div>
+			</section>
+
+			<section>
+				<div class="ueberschrift">
+					<h3>Anfängerguide</h3>
+				</div>
+				<div class="section_text">
+					PDF-Version: <a href="Anfaengerguide.pdf">Anfaengerguide.pdf</a><br>
+					Version zum Editieren: <a href="https://drive.google.com/open?id=1tLHgeR2YrgrjGCbg_VvuUKD0uOCNOu_aXGCzkw0AqoY" target="_blank">https://drive.google.com/open?id=1tLHgeR2YrgrjGCbg_VvuUKD0uOCNOu_aXGCzkw0AqoY</a>
+				</div>
+			</section>
     </main>
   </body>
 </html>

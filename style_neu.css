@@ -31,10 +31,31 @@ main {
     left: 20px;
     z-index: 2;
 }
+#anleitung ul {
+  line-height: 1.5;
+}
 .message {
   padding: 10px;
   border: 2px solid green;
   background-color: lime;
+  z-index: 2;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.temporaer {
+  padding: 10px;
+  border: 2px solid orange;
+  background-color: yellow;
+  z-index: 2;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.permanent {
+  padding: 10px;
+  border: 2px solid darkred;
+  background-color: red;
   z-index: 2;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -60,4 +81,11 @@ th {
 	padding: 5px;
 	text-align: center;
 	color: Black;
+}
+.ueberschrift {
+  text-align: center;
+}
+.section_text {
+  text-align: center;
+  line-height: 1.5;
 }
