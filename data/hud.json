@@ -1,0 +1,116 @@
+[
+  {
+    "Type": "Text",
+    "X": 2,
+    "Y": 2,
+    "Scale": 2.0,
+    "HorizontalFacing": "Left",
+    "VerticalFacing": "Up",
+    "DisplayText": "%clientName%",
+    "Red": "255",
+    "Green": "255",
+    "Blue": "255",
+    "Rainbow": "false",
+    "Shadow": "true",
+    "font": {
+      "fontName": "Roboto Medium",
+      "fontSize": 40
+    }
+  },
+  {
+    "Type": "TabGUI",
+    "X": 2,
+    "Y": 25,
+    "Scale": 1.0,
+    "HorizontalFacing": "Left",
+    "VerticalFacing": "Up",
+    "Rectangle Red": "0",
+    "Rectangle Green": "200",
+    "Rectangle Blue": "255",
+    "Rectangle Alpha": "140",
+    "Rectangle Rainbow": "true",
+    "Background Red": "0",
+    "Background Green": "0",
+    "Background Blue": "0",
+    "Background Alpha": "150",
+    "Border": "true",
+    "Border Strength": "2",
+    "Border Red": "0",
+    "Border Blue": "0",
+    "Border Alpha": "150",
+    "Border Rainbow": "false",
+    "Arrows": "true",
+    "font": {
+      "fontName": "Roboto Medium",
+      "fontSize": 35
+    },
+    "TextShadow": "false",
+    "TextFade": "true",
+    "TextPosition-Y": "2",
+    "Width": "60",
+    "TabHeight": "12",
+    "UpperCase": "false"
+  },
+  {
+    "Type": "Armor",
+    "X": 8,
+    "Y": 57,
+    "Scale": 1.0,
+    "HorizontalFacing": "Middle",
+    "VerticalFacing": "Down"
+  },
+  {
+    "Type": "Notifications",
+    "X": 0,
+    "Y": 30,
+    "Scale": 1.0,
+    "HorizontalFacing": "Right",
+    "VerticalFacing": "Down"
+  },
+  {
+    "Type": "Effects",
+    "X": 2,
+    "Y": 10,
+    "Scale": 1.0,
+    "HorizontalFacing": "Right",
+    "VerticalFacing": "Down",
+    "font": {
+      "fontName": "Roboto Medium",
+      "fontSize": 35
+    },
+    "Shadow": "true"
+  },
+  {
+    "Type": "Arraylist",
+    "X": 0,
+    "Y": 2,
+    "Scale": 1.0,
+    "HorizontalFacing": "Right",
+    "VerticalFacing": "Up",
+    "Text-Color": "Random",
+    "Text-R": "255",
+    "Text-G": "255",
+    "Text-B": "255",
+    "Rect-Color": "Random",
+    "Rect-R": "255",
+    "Rect-G": "255",
+    "Rect-B": "255",
+    "Rect-Alpha": "255",
+    "Tags": "true",
+    "ShadowText": "false",
+    "Background-Color": "Custom",
+    "Background-R": "0",
+    "Background-G": "0",
+    "Background-B": "0",
+    "Background-Alpha": "255",
+    "Rect": "Right",
+    "UpperCase": "false",
+    "Space": "0",
+    "TagsArrayColor": "false",
+    "TextPosition": "1",
+    "font": {
+      "fontName": "Roboto Medium",
+      "fontSize": 40
+    }
+  }
+]

@@ -1,0 +1,561 @@
+{
+  "targets": {
+    "TargetPlayer": true,
+    "TargetMobs": false,
+    "TargetAnimals": false,
+    "TargetInvisible": false,
+    "TargetDead": true
+  },
+  "features": {
+    "AntiForge": false,
+    "AntiForgeFML": true,
+    "AntiForgeProxy": true,
+    "AntiForgePayloads": true,
+    "BungeeSpoof": false
+  },
+  "mainmenu": {
+    "Style": "New"
+  },
+  "Aimbot": {
+    "Range": "4.6",
+    "TurnSpeed": "2.0",
+    "FOV": "180.0",
+    "OnClick": "false",
+    "Jitter": "false"
+  },
+  "AntiBot": {
+    "Tab": "false",
+    "TabMode": "Contains",
+    "EntityID": "true",
+    "Color": "false",
+    "LivingTime": "false",
+    "Ground": "true",
+    "Air": "false",
+    "InvaildGround": "false",
+    "Swing": "false",
+    "Health": "false",
+    "Derp": "true",
+    "WasInvisible": "false",
+    "Armor": "false",
+    "Ping": "false",
+    "NeedHit": "false"
+  },
+  "AtAllProvider": {
+    "MaxDelay": "1000",
+    "MinDelay": "500",
+    "Retry": "false"
+  },
+  "AutoArmor": {
+    "MaxDelay": "75",
+    "MinDelay": "50",
+    "InvOpen": "false",
+    "SimulateInventory": "false",
+    "NoMove": "false",
+    "ItemDelay": "0",
+    "Hotbar": "true"
+  },
+  "AutoClicker": {
+    "MaxCPS": "20",
+    "MinCPS": "20",
+    "Right": "true",
+    "Left": "true",
+    "Jitter": "false"
+  },
+  "AutoLeave": {
+    "Health": "8.0",
+    "Mode": "Quit"
+  },
+  "AutoPot": {
+    "Health": "15.0",
+    "Delay": "0",
+    "OpenInv": "false",
+    "Mode": "Normal"
+  },
+  "AutoRespawn": {
+    "Instant": "true"
+  },
+  "AutoSoup": {
+    "Health": "15.0",
+    "Delay": "0",
+    "OpenInv": "false"
+  },
+  "AutoSword": {
+    "SpoofItem": "false"
+  },
+  "Blink": {
+    "Pulse": "false",
+    "PulseDelay": "1000"
+  },
+  "BlockESP": {
+    "Mode": "Box",
+    "id": "92",
+    "Radius": "40",
+    "R": "255",
+    "G": "179",
+    "B": "72",
+    "Rainbow": "false"
+  },
+  "BlockOverlay": {
+    "R": "255",
+    "G": "179",
+    "B": "72",
+    "Rainbow": "false",
+    "Info": "true"
+  },
+  "BlockWalk": {
+    "Cobweb": "true",
+    "Snow": "true"
+  },
+  "BowAimbot": {
+    "Silent": "false",
+    "Predict": "true",
+    "PredictSize": "2.0",
+    "TargetMode": "Distance",
+    "Mark": "true"
+  },
+  "Breadcrumbs": {
+    "R": "0",
+    "G": "160",
+    "B": "255",
+    "Rainbow": "false"
+  },
+  "BufferSpeed": {
+    "SpeedLimit": "true",
+    "MaxSpeed": "2.0",
+    "Buffer": "true",
+    "Stairs": "true",
+    "StairsBoost": "1.87",
+    "StairsMode": "Old",
+    "Slabs": "true",
+    "SlabsBoost": "1.87",
+    "SlabsMode": "Old",
+    "Ice": "false",
+    "IceBoost": "1.342",
+    "Snow": "false",
+    "SnowBoost": "1.87",
+    "SnowPort": "true",
+    "Wall": "false",
+    "WallBoost": "1.87",
+    "WallMode": "New",
+    "HeadBlock": "false",
+    "HeadBlockBoost": "1.87",
+    "Slime": "false",
+    "AirStrafe": "false",
+    "NoHurt": "true"
+  },
+  "BugUp": {
+    "Mode": "TeleportBack",
+    "FallDistance": "2.0"
+  },
+  "ChestAura": {
+    "Delay": "100",
+    "ThroughWalls": "true",
+    "VisualSwing": "true",
+    "Chest": "54"
+  },
+  "ChestStealer": {
+    "MaxDelay": "75",
+    "MinDelay": "50",
+    "TakeRandomized": "false",
+    "OnlyItems": "false",
+    "NoCompass": "false",
+    "AutoClose": "true"
+  },
+  "CivBreak": {
+    "Air-Reset": "true",
+    "Range-Reset": "true"
+  },
+  "ClickGUI": {
+    "Style": "Slowly",
+    "Scale": "0.7",
+    "MaxElements": "20",
+    "R": "0",
+    "G": "160",
+    "B": "255",
+    "Rainbow": "false"
+  },
+  "ConsoleSpammer": {
+    "Mode": "Payload",
+    "Delay": "0"
+  },
+  "ControllerControl": {
+    "ControllerID": "0",
+    "RotationSpeed": "0.2"
+  },
+  "Criticals": {
+    "Mode": "Packet",
+    "Delay": "250"
+  },
+  "Damage": {
+    "Mode": "NCP",
+    "Damage": "1"
+  },
+  "Derp": {
+    "Headless": "false",
+    "Spinny": "false",
+    "Increment": "1.0"
+  },
+  "ESP": {
+    "Mode": "Box",
+    "Outline-Width": "3.0",
+    "WireFrame-Width": "2.0",
+    "Shader-Radius": "1.6",
+    "R": "255",
+    "G": "255",
+    "B": "255",
+    "Rainbow": "false",
+    "Team": "false"
+  },
+  "FastBow": {
+    "Packets": "20"
+  },
+  "FastBreak": {
+    "BreakDamage": "0.8"
+  },
+  "FastClimb": {
+    "Bypass": "AAC"
+  },
+  "FastPlace": {
+    "Speed": "0"
+  },
+  "FastStairs": {
+    "Mode": "NCP",
+    "LongJump": "false"
+  },
+  "FastUse": {
+    "Mode": "Instant"
+  },
+  "Fly": {
+    "Mode": "Mineplex",
+    "VanillaSpeed": "1.0",
+    "MineplexSpeed": "1.0",
+    "NCPMotion": "0.0",
+    "AACSpeed": "0.3",
+    "AAC3.3.12-Motion": "10.0",
+    "AAC3.3.13-Motion": "10.0",
+    "NeruxVace-Ticks": "4",
+    "HypixelLatest-Boost": "true",
+    "HypixelLatest-BoostDelay": "1200",
+    "HypixelLatest-BoostTimer": "1.0",
+    "Mark": "true"
+  },
+  "FreeCam": {
+    "Speed": "0.49",
+    "Fly": "true",
+    "NoClip": "true"
+  },
+  "Fucker": {
+    "id": "92",
+    "Instant": "false",
+    "ThroughWalls": "Around",
+    "Swing": "true",
+    "Surroundings": "false",
+    "Action": "Use",
+    "NoHit": "false"
+  },
+  "Fullbright": {
+    "Mode": "Gamma"
+  },
+  "GhostHand": {
+    "id": "54"
+  },
+  "HUD": {
+    "BlackHotbar": "false",
+    "InventoryParticle": "false",
+    "Blur": "true",
+    "FontChat": "false"
+  },
+  "HighJump": {
+    "Height": "2.0",
+    "Mode": "Mineplex",
+    "OnlyGlassPane": "false"
+  },
+  "HitBox": {
+    "Size": "0.4"
+  },
+  "IceSpeed": {
+    "Mode": "AAC"
+  },
+  "InventoryCleaner": {
+    "MaxDelay": "75",
+    "MinDelay": "50",
+    "InvOpen": "false",
+    "SimulateInventory": "true",
+    "NoMove": "false",
+    "Hotbar": "true",
+    "RandomSlot": "false",
+    "Sort": "true",
+    "SortSlot-1": "Sword",
+    "SortSlot-2": "Bow",
+    "SortSlot-3": "Pickaxe",
+    "SortSlot-4": "Axe",
+    "SortSlot-5": "Food",
+    "SortSlot-6": "Block",
+    "SortSlot-7": "Food",
+    "SortSlot-8": "Block",
+    "SortSlot-9": "Block"
+  },
+  "InventoryMove": {
+    "AACAdditionPro": "false",
+    "NoMoveClicks": "false"
+  },
+  "ItemESP": {
+    "R": "0",
+    "G": "255",
+    "B": "0",
+    "Rainbow": "true"
+  },
+  "ItemTeleport": {
+    "Mode": "New",
+    "ResetAfterTP": "true",
+    "Button": "Middle"
+  },
+  "Kick": {
+    "Mode": "PacketSpam"
+  },
+  "KillAura": {
+    "MaxCPS": "14",
+    "MinCPS": "10",
+    "HurtTime": "10",
+    "Range": "4.8",
+    "RangeSprintReducement": "0.3",
+    "Priority": "Direction",
+    "TargetMode": "Switch",
+    "MultiMode": "NCP",
+    "ThroughWalls": "true",
+    "Swing": "true",
+    "KeepSprint": "true",
+    "AutoBlock": "true",
+    "BlockRate": "100",
+    "AAC": "false",
+    "RayCast": "false",
+    "RayCastIgnored": "false",
+    "LivingRayCast": "true",
+    "Predict": "true",
+    "PredictSize": "1.5",
+    "NoInvAttack": "true",
+    "NoInvDelay": "100",
+    "FailRate": "0.0",
+    "MaxTurnSpeed": "180.0",
+    "MinTurnSpeed": "180.0",
+    "FakeSwing": "true",
+    "SilentRotation": "true",
+    "RandomCenter": "true",
+    "Outborder": "false",
+    "FOV": "180.0",
+    "Mark": "true",
+    "FakeSharp": "true"
+  },
+  "LiquidWalk": {
+    "Mode": "NCP"
+  },
+  "LongJump": {
+    "Mode": "Mineplex3",
+    "NCPBoost": "3.0"
+  },
+  "NameProtect": {
+    "FakeName": "\u0026cMe",
+    "AllPlayers": "false",
+    "SkinProtect": "true"
+  },
+  "NameTags": {
+    "Health": "true",
+    "Ping": "false",
+    "Distance": "false",
+    "Armor": "true",
+    "ClearNames": "false",
+    "Font": {
+      "fontName": "Roboto Medium",
+      "fontSize": 40
+    }
+  },
+  "NoFOV": {
+    "FOV": "1.0"
+  },
+  "NoFall": {
+    "Mode": "SpoofGround"
+  },
+  "NoRotateSet": {
+    "Confirm": "true",
+    "ConfirmIllegalRotation": "false",
+    "NoZero": "false"
+  },
+  "NoSlow": {
+    "Sword": "Vanilla",
+    "Consume": "AAC",
+    "Bow": "AAC",
+    "Soulsand": "true",
+    "CustomReducement": "0.0"
+  },
+  "NoSwing": {
+    "ServerSide": "true"
+  },
+  "NoWeb": {
+    "Mode": "AAC"
+  },
+  "Phase": {
+    "Mode": "Vanilla"
+  },
+  "PingSpoof": {
+    "Delay": "0"
+  },
+  "ProphuntESP": {
+    "R": "0",
+    "G": "90",
+    "B": "255",
+    "Rainbow": "false"
+  },
+  "Reach": {
+    "Reach": "4.5"
+  },
+  "Regen": {
+    "Mode": "Vanilla",
+    "Health": "10",
+    "Food": "20",
+    "Speed": "100",
+    "NoAir": "true"
+  },
+  "ReverseStep": {
+    "Motion": "1.0"
+  },
+  "Scaffold": {
+    "Mode": "Expand",
+    "MaxDelay": "0",
+    "MinDelay": "0",
+    "AutoBlock": "true",
+    "StayAutoBlock": "false",
+    "Sprint": "true",
+    "Swing": "true",
+    "Search": "true",
+    "Eagle": "false",
+    "PlaceableDelay": "true",
+    "BlocksToEagle": "0",
+    "ExpandLength": "1",
+    "KeepRotation": "false",
+    "Zitter": "false",
+    "ZitterMode": "Teleport",
+    "ZitterSpeed": "0.13",
+    "ZitterStrength": "0.072",
+    "Timer": "1.0",
+    "SpeedModifier": "0.19",
+    "Counter": "true",
+    "Mark": "false"
+  },
+  "ServerCrasher": {
+    "Mode": "AACNew"
+  },
+  "SkinDerp": {
+    "Delay": "0",
+    "Hat": "true",
+    "Jacket": "true",
+    "LeftPants": "true",
+    "RightPants": "true",
+    "LeftSleeve": "true",
+    "RightSleeve": "true"
+  },
+  "SlimeJump": {
+    "Motion": "0.42",
+    "Mode": "Add"
+  },
+  "Sneak": {
+    "Mode": "Switch",
+    "StopMove": "true"
+  },
+  "Spammer": {
+    "MaxDelay": "2000",
+    "MinDelay": "1000",
+    "Message": "StimpyLumbo mach deinen spammer aus",
+    "Custom": "false"
+  },
+  "Speed": {
+    "Mode": "MineplexGround",
+    "CustomSpeed": "0.8",
+    "CustomY": "0.2",
+    "CustomTimer": "1.0",
+    "CustomStrafe": "true",
+    "AAC-PortLength": "1.0",
+    "AACGround-Timer": "3.0",
+    "CubeCraft-PortLength": "1.0",
+    "MineplexGround-Speed": "0.65"
+  },
+  "Sprint": {
+    "AllDirections": "false",
+    "Blindness": "true",
+    "Food": "true",
+    "CheckServerSide": "false"
+  },
+  "Step": {
+    "Mode": "NCP",
+    "Height": "1.0",
+    "Delay": "0"
+  },
+  "StorageESP": {
+    "Mode": "Outline",
+    "Chest": "true",
+    "EnderChest": "false",
+    "Furnace": "false",
+    "Dispenser": "false",
+    "Hopper": "false"
+  },
+  "TNTBlock": {
+    "Fuse": "0",
+    "AutoSword": "true"
+  },
+  "Teams": {
+    "ScoreboardTeam": "true",
+    "Color": "true"
+  },
+  "Teleport": {
+    "Mode": "Minesucht",
+    "Button": "Middle"
+  },
+  "Timer": {
+    "Speed": "3.0"
+  },
+  "Tower": {
+    "Mode": "Packet",
+    "AutoBlock": "true",
+    "StayAutoBlock": "false",
+    "Swing": "true",
+    "JumpMotion": "0.42",
+    "ConstantMotion": "0.42",
+    "ConstantMotionJumpGround": "0.79",
+    "TeleportHeight": "1.15",
+    "TeleportDelay": "0",
+    "TeleportGround": "true",
+    "TeleportNoMotion": "false"
+  },
+  "Trigger": {
+    "MaxCPS": "20",
+    "MinCPS": "8"
+  },
+  "TrueSight": {
+    "Barriers": "true",
+    "Entities": "true"
+  },
+  "VClip": {
+    "YPort": "10.0"
+  },
+  "Velocity": {
+    "Horizontal": "0.0",
+    "Vertical": "0.0",
+    "Mode": "Simple",
+    "ReverseStrength": "1.0",
+    "Reverse2Strength": "0.02"
+  },
+  "WallClimb": {
+    "Mode": "Simple",
+    "ClipMode": "Fast"
+  },
+  "WaterFly": {
+    "Motion": "0.5"
+  },
+  "WaterSpeed": {
+    "Speed": "1.2"
+  },
+  "Zoot": {
+    "BadEffects": "true",
+    "Fire": "true",
+    "NoAir": "false"
+  }
+}

@@ -15,37 +15,14 @@ html, body
 #header-schrift {
     font-size: 50px;
 }
-#filter {
+main {
     background-color: #E6E6E6;
     top: 120px;
-    bottom: 0px;
-    width: 20%;
-    left: 20px;
-    position: absolute;
-}
-#content {
     left: 20px;
     right: 20px;
-    background-color: #E6E6E6;
-    top: 120px;
     position: absolute;
     bottom: 0px;
-
-}
-#text {
-    left: 20px;
-    right: 20px;
-    bottom: 0px;
-    background-color: #E6E6E6;
-}
-ol {
-    list-style: circle;
-}
-li {
-    margin-top: 15px;
-}
-a:hover {
-    color: #2E2EFE;
+    z-index: 1;
 }
 #main {
     background-color: #E6E6E6;
@@ -63,73 +40,61 @@ a:hover {
     left: 20px;
     z-index: 2;
 }
-#erfolg {
-    background-color: #33FF33;
-    border: 1px;
-    position: absolute;
-    left: 25%;
-    right: 25%;
-    height: 50px;
-    border-color: black;
-    opacity: 0.5;
-    font-size: 20px;
+#anleitung ul {
+  line-height: 1.5;
 }
-#faktor {
-    position: absolute;
-    right: 20px;
-    top: 20px;
-    background-color: #E6E6E6;
-    float: right;
-    z-index: 2;
-    width: 20%;
+.message {
+  padding: 10px;
+  border: 2px solid green;
+  background-color: lime;
+  z-index: 2;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
 }
-#erfolgimerfolg {
-    top: 15px;
-    bottom: 15px;
-    font-size: 20px;
-    height: 20px;
-    position: absolute;
-    text-align: center;
+.temporaer {
+  padding: 10px;
+  border: 2px solid orange;
+  background-color: yellow;
+  z-index: 2;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
 }
-#stats {
-    top: 20px;
+.permanent {
+  padding: 10px;
+  border: 2px solid darkred;
+  background-color: red;
+  z-index: 2;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+#text {
     left: 20px;
     right: 20px;
-    bottom: 20px;
-    position: absolute;
+    bottom: 0px;
     background-color: #E6E6E6;
-    z-index: 2;
 }
-#server {
-	font-weight: bold;
+#bantabelle {
+  border-collapse: collapse;
+  border: 1px solid black;
+}
+th {
   background-color: LightGray;
+  padding: 5px;
+  border: 1px solid Gray;
 }
-#red {
-	background-color: red;
-}
-#yellow {
-	background-color: yellow;
-}
-#green {
-	background-color: green;
-}
-#tabelle {
-  width: 30%;
-}
-#zelle {
-  	border: 1px solid Gray;
+#bantabelle td {
+  border: 1px solid Gray;
 	padding: 5px;
 	text-align: center;
 	color: Black;
 }
-#bantabelle {
-  border-collapse: collapse;
+.ueberschrift {
+  text-align: center;
 }
-th {
-  background-color: LightGray;
-}
-#tastatur {
-  width: 95%;
-  display: block;
-  margin: 0px auto;
+.section_text {
+  text-align: center;
+  line-height: 1.5;
 }
