@@ -37,4 +37,12 @@ function banZelle($time) {
   $return = array($color, $ausgabe, $code);
   return $return;
 }
+
+function calcRGB($gesamt, $perma, $temp, $free) {
+	$red = $perma/$gesamt * 255 + $temp/$gesamt * 255;
+	$green = $free/$gesamt * 255 + $temp/$gesamt * 255;
+	$blue = 0;
+	$back = array($red,$green,$blue);
+	return $back;
+}
  ?>

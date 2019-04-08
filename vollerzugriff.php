@@ -169,8 +169,39 @@ include("create_lists.php");
           <tr>
             <th></th>
             <?php
+						$freeArray = array();
+						$tempArray = array();
+						$permaArray = array();
   					for ($i = 0; $i < $anzahl_server; $i++) {
-              print "<th>$servers[$i]</th>";
+							$free = 0;
+							$temp = 0;
+							$perma = 0;
+							$sql = "SELECT * FROM `alts` WHERE `server` = \"$servers[$i]\"";
+							$back = mysqli_query($db, $sql);
+							$row = mysqli_fetch_array($back);
+
+							for ($j=0; $j < $anzahl - 2; $j++) {
+							  $current_alt = $alts[$j];
+							  if ($row["$current_alt"] == "") {
+							    // alt ist frei
+									$free = $free + 1;
+							  }
+								if ($row["$current_alt"] == "9999-12-31 23:59:59") {
+							    // alt ist perma gebannt
+									$perma = $perma + 1;
+							  }
+								if ($row["$current_alt"] != "9999-12-31 23:59:59" && $row["$current_alt"] != "") {
+									// alt ist temp gebannt
+									$temp = $temp + 1;
+								}
+							}
+
+							$freeArray[] = $free;
+							$tempArray[] = $temp;
+							$permaArray[] = $perma;
+							$rgbvalues = calcRGB($anzahl - 2, $perma, $temp, $free);
+              print "<th style=\"background-color: rgba($rgbvalues[0],$rgbvalues[1],$rgbvalues[2],0.5);\">$servers[$i]</th>";
+							//print "<th>$servers[$i]</th>";
             }
   					?>
           </tr>
@@ -209,6 +240,14 @@ include("create_lists.php");
             }
             print "</tr>";
           }
+					print "<tr>";
+					print "<td></td>";
+					for ($k=0; $k < $anzahl_server; $k++) {
+						print "<td>";
+						print "Free: $freeArray[$k], Temp: $tempArray[$k], Perma: $permaArray[$k]";
+						print "</td>";
+					}
+					print "</tr>";
            ?>
         </table>
       </div>
@@ -238,6 +277,10 @@ include("create_lists.php");
 				</div>
 				<div class="section_text">
 					<table align="center">
+						<tr>
+							<td>Alts insgesamt:</td>
+							<td><?php print $anzahl - 2; ?> (abzüglich 2 Main-Accounts)</td>
+						</tr>
 						<tr>
 							<td>Anzahl freie Pl&auml;tze:</td>
 							<td><?php print $anzahlFrei; ?></td>
