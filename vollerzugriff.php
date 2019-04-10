@@ -213,7 +213,7 @@ include("create_lists.php");
 					$anzahlPermaBans = 0;
 					$gesamteTempBanZeit = 0;
 					$anzahlFrei = 0;
-          for ($i = 0; $i < $anzahl-3; $i++) {
+          for ($i = 0; $i < $anzahl-2; $i++) {
             // einmal durch alle Alts laufen
             $sql = "SELECT `$alts[$i]`,`server` FROM `alts`";
             $back = mysqli_query($db, $sql);
