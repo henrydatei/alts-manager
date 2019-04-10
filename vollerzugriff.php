@@ -199,7 +199,7 @@ include("create_lists.php");
 							$freeArray[] = $free;
 							$tempArray[] = $temp;
 							$permaArray[] = $perma;
-							$rgbvalues = calcRGB($anzahl - 2, $perma, $temp, $free);
+							$rgbvalues = calcRGBlogistisch($anzahl - 2, $perma, $temp, $free);
               print "<th style=\"background-color: rgba($rgbvalues[0],$rgbvalues[1],$rgbvalues[2],0.5);\">$servers[$i]</th>";
 							//print "<th>$servers[$i]</th>";
             }

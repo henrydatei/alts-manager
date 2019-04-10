@@ -45,4 +45,13 @@ function calcRGB($gesamt, $perma, $temp, $free) {
 	$back = array($red,$green,$blue);
 	return $back;
 }
+
+function calcRGBlogistisch($gesamt, $perma, $temp, $free) {
+	$k = 2*log(254)/255;
+	$red = 255 / (1 + exp(-255*$k*($perma/$gesamt))*((255/1)-1)) + 255 / (1 + exp(-255*$k*($temp/$gesamt))*((255/1)-1));
+	$green = 255 / (1 + exp(-255*$k*($free/$gesamt))*((255/1)-1)) + 255 / (1 + exp(-255*$k*($temp/$gesamt))*((255/1)-1));
+	$blue = 0;
+	$back = array($red,$green,$blue);
+	return $back;
+}
  ?>
