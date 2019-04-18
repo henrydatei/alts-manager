@@ -33,17 +33,17 @@ for($j=0;$j<=($anzahl-3);$j++) {
 <body>
 <?php
 $bandaten=array();
-for($j=0;$j<=($anzahl-3);$j++) {	
+for($j=0;$j<=($anzahl-3);$j++) {
 	$neu=$alts[$j];
 	$eingabe=$_POST["$neu"];
 	if($eingabe=='') $eingabe="NULL";
 	else $eingabe="'$eingabe'";
 	array_push($bandaten,$eingabe);
 }
-	
+
 	$server=$_POST['server'];
 
-	
+
 $vorne="";
 for($k=0;$k<=($anzahl-3);$k++) {
 	$vorne=$vorne."`$alts[$k]`";
@@ -55,7 +55,13 @@ $vorne=$vorne."`server`,"."`id`";
 	print $eintragen;
 	$eingetragen=mysqli_query($db, $eintragen);
 	print "Erfolgreich eingetragen";
-	
+
+	// for automatic update
+	$f=fopen('lastupdate.txt','w');
+	$time = time();
+	fwrite($f,"$time");
+	fclose($f);
+
 
 ?>
 </body>

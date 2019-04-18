@@ -26,6 +26,7 @@ include("create_lists.php");
     <meta charset="utf-8">
     <link href="style.css" type="text/css" rel="stylesheet" />
     <title>Der organisierte Hacker</title>
+		<script src="autoupdate.js" charset="utf-8" defer="defer"></script>
   </head>
   <body>
     <div id="header">

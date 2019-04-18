@@ -33,5 +33,11 @@ $sql="UPDATE `henrydatei`.`alts` SET `$alt` = $zeit WHERE `alts`.`id` =$id";
 
 $result=mysqli_query($db, $sql);
 
+// for automatic update
+$f=fopen('lastupdate.txt','w');
+$time = time();
+fwrite($f,"$time");
+fclose($f);
+
 header("Location: http://henrydatei.bplaced.net/alts/vollerzugriff.php?alt=$alt&server=$server&perma=$perma");
 ?>

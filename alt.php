@@ -67,6 +67,12 @@ for($j=0;$j<=($anzahl-3);$j++) {
 		print "neuer Eintrag: UPDATE `henrydatei`.`alts` SET `$neueralt` = $temp WHERE `alts`.`id` =$id";
 		print "<br />";
 		$neuereintrag=mysqli_query($db, "UPDATE `henrydatei`.`alts` SET `$neueralt` = $temp WHERE `alts`.`id` =$id");
+
+		// for automatic update
+		$f=fopen('lastupdate.txt','w');
+		$time = time();
+		fwrite($f,"$time");
+		fclose($f);
 	}
 
 

@@ -24,5 +24,11 @@ mysqli_query($db,$ausaccounts);
 mysqli_query($db,$ausmaindb);
 mysqli_query($db,$into_remove_db);
 
+// for automatic update
+$f=fopen('lastupdate.txt','w');
+$time = time();
+fwrite($f,"$time");
+fclose($f);
+
 print "Alt $alt erfolgreich gel&ouml;scht";
 ?>
