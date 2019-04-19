@@ -1,4 +1,18 @@
 <?php
+function calcTempColor($daysLeft) {
+	if ($daysLeft <= 30) {
+		$r = 155 + pow($daysLeft/30,1/2) * 100;
+		$g = 255;
+		$b = 0;
+	} else {
+		$r = 255;
+		$g = -0.3821 * $daysLeft + 266.4627;
+		$b = 0;
+	}
+	$back = array($r,$g,$b);
+	return $back;
+}
+
 function sekundentoalles($zeitInSekunden) {
 	if($zeitInSekunden >= 86400) {
 		$anzahlTage = ($zeitInSekunden - $zeitInSekunden%86400)/86400;
@@ -31,7 +45,9 @@ function banZelle($time) {
     $datum = explode('-', $getrennt[0]);
     $uhrzeit = explode(':', $getrennt[1]);
     $ausgabe = $datum[2].'.'.$datum[1].'.'.$datum[0].' '.$uhrzeit[0].':'.$uhrzeit[1].':'.$uhrzeit[2];
-    $color = "#FFFF00";
+		$restzeit = (strtotime($time) - time())/(3600 * 24);
+		$rgbvalues = calcTempColor($restzeit);
+		$color = "rgb($rgbvalues[0],$rgbvalues[1],$rgbvalues[2])";
     $code = 1;
   }
   $return = array($color, $ausgabe, $code);
