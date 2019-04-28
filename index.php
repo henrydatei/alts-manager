@@ -48,9 +48,9 @@ include("create_lists.php");
   				<tr>
   					<td>
   						<ul>
-  							<li><a href="neuerAlt.php">Neuer Alt</a></li>
-  							<li><a href="neuerServer.php">Neuer Server</a></li>
-  							<li><a href="Altweg.php">Alt l&ouml;schen</a></li>
+  							<li><a href="newAlt/">Neuer Alt</a></li>
+  							<li><a href="newServer/">Neuer Server</a></li>
+  							<li><a href="removeAlt/">Alt l&ouml;schen</a></li>
   						</ul>
   					</td>
   					<form action="eintragen.php" method="post">

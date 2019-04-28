@@ -1,5 +1,20 @@
 <?php
 include("dbconnect.php");
+
+$alts=array();
+$namen=mysqli_query($db, "DESCRIBE `alts` ");
+while($infos=mysqli_fetch_array($namen)) {
+	array_push($alts,$infos[Field]);
+}
+$anzahl=count($alts);
+
+$mains = array();
+$sql = "SELECT * FROM `main_accounts` WHERE `only_friendlist` = 0";
+$back = mysqli_query($db, $sql);
+while ($row = mysqli_fetch_array($back)) {
+	$mains[] = $row['username'];
+}
+$anzahl_mains = count($mains);
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -14,7 +29,7 @@ include("dbconnect.php");
     <meta name="keywords" content="" />
     <meta name="generator" content="Webocton - Scriptly (www.scriptly.de)" />
 
-    <link href="style.css" type="text/css" rel="stylesheet" />
+    <link href="/style.css" type="text/css" rel="stylesheet" />
 </head>
 
 <body>
@@ -24,29 +39,19 @@ include("dbconnect.php");
 
 	<div id="main">
 		<div id="text" align="center">
-			<h2>neuen Alt eintragen</h2>
-			<form method="post" action="alt.php">
+			<h2>vorhandenen Alt l&ouml;schen</h2>
+			<form method="get" action="altentsorgen.php">
 				<table>
 					<tr>
-						<td> neuer Alt (InGame-Name):</td>
-						<td><input type="text" name="neueralt" size="15" /></td>
+						<td> zu l&ouml;schender Alt:</td>
+						<td><select name="altweg">
+											<?php
+												for ($l=0; $l<($anzahl-$anzahl_mains) ; $l++) {
+													print "<option>$alts[$l]</option>";
+												}
+											 ?>
+										</select></td>
 					</tr>
-          <tr>
-            <td>E-Mail und Passwort:</td>
-            <td><input type="text" name="LoginData" placeholder="email:password" size="15"></td>
-          </tr>
-					<?php
-					$server="SELECT server FROM alts";
-					$ergb=mysqli_query($db, $server);
-						while($serv=mysqli_fetch_object($ergb)) {
-							$banserver=$serv->server;
-							print "<tr>";
-							print "<td>Vom Server $banserver gebannt bis:</td>";
-							print "<td><input type=\"text\" name=\"$banserver\" size=\"15\" /></td>";
-							print "</tr>";
-						}
-					?>
-
 					<tr>
 						<td></td>
 						<td><input type="submit" name="s" value="absenden" /></td>

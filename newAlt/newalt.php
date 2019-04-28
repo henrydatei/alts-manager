@@ -7,12 +7,14 @@ while($infos=mysqli_fetch_array($namen)) {
 	array_push($alts,$infos[Field]);
 }
 $anzahl=count($alts);
-/*
-for($j=0;$j<=($anzahl-3);$j++) {
-	print $alts[$j];
-	print "<br />";
+
+$mains = array();
+$sql = "SELECT * FROM `main_accounts` WHERE `only_friendlist` = 0";
+$back = mysqli_query($db, $sql);
+while ($row = mysqli_fetch_array($back)) {
+	$mains[] = $row['username'];
 }
-*/
+$anzahl_mains = count($mains);
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -27,15 +29,15 @@ for($j=0;$j<=($anzahl-3);$j++) {
     <meta name="keywords" content="" />
     <meta name="generator" content="Webocton - Scriptly (www.scriptly.de)" />
 
-    <link href="style.css" type="text/css" rel="stylesheet" />
+    <link href="/style.css" type="text/css" rel="stylesheet" />
 </head>
 
 <body>
 <?php
 	//Accounts-Datenbank
-	$zugangsdaten= $_POST['LoginData'];
+	$zugangsdaten= $_GET['LoginData'];
 	$userpass = explode(':',$zugangsdaten);
-	$neueralt=$_POST['neueralt'];
+	$neueralt=$_GET['neueralt'];
 	//SQL Befehl
 	print "Email-Adresse: $userpass[0]";
 	print "<br />";
@@ -47,8 +49,8 @@ for($j=0;$j<=($anzahl-3);$j++) {
 	//print "neuer Eintrag: UPDATE `henrydatei`.`accounts` SET `$neueralt` = $temp WHERE `alts`.`id` =$id";
 
 	//Alts-Datenbank
-	$letzteralt=$alts[$anzahl-3];
-	$neueralt=$_POST['neueralt'];
+	$letzteralt=$alts[$anzahl-($anzahl_mains + 1)];
+	$neueralt=$_GET['neueralt'];
 	print "neue Spalte: ALTER TABLE `alts` ADD `$neueralt` TEXT NULL AFTER `$letzteralt`";
 	print "<br />";
 	$spalteres=mysqli_query($db, "ALTER TABLE `alts` ADD `$neueralt` TEXT NULL AFTER `$letzteralt`");

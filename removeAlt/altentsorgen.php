@@ -1,7 +1,7 @@
 <?php
 include("dbconnect.php");
 
-$alt=$_POST['altweg'];
+$alt=$_GET['altweg'];
 
 $ausaccounts = "DELETE FROM `henrydatei`.`accounts` WHERE `accounts`.`displayed_name` = '$alt'";
 $ausmaindb = "ALTER TABLE `alts` DROP `$alt`";
