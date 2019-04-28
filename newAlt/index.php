@@ -1,5 +1,5 @@
 <?php
-include("dbconnect.php");
+include("../dbconnect.php");
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -14,7 +14,7 @@ include("dbconnect.php");
     <meta name="keywords" content="" />
     <meta name="generator" content="Webocton - Scriptly (www.scriptly.de)" />
 
-    <link href="/style.css" type="text/css" rel="stylesheet" />
+    <link href="/alts/style.css" type="text/css" rel="stylesheet" />
 </head>
 
 <body>

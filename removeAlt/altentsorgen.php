@@ -1,5 +1,5 @@
 <?php
-include("dbconnect.php");
+include("../dbconnect.php");
 
 $alt=$_GET['altweg'];
 

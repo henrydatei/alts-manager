@@ -1,5 +1,5 @@
 <?php
-include("dbconnect.php");
+include("../dbconnect.php");
 
 $alts=array();
 $namen=mysqli_query($db, "DESCRIBE `alts` ");
@@ -32,7 +32,7 @@ $anzahl_mains = count($mains);
     <meta name="keywords" content="" />
     <meta name="generator" content="Webocton - Scriptly (www.scriptly.de)" />
 
-    <link href="/style.css" type="text/css" rel="stylesheet" />
+    <link href="/alts/style.css" type="text/css" rel="stylesheet" />
 </head>
 
 <body>
