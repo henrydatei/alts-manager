@@ -1,4 +1,4 @@
-curl henrydatei.bplaced.net/alts/vollerzugriff.php >> /dev/null
+curl henrydatei.bplaced.net/alts/ >> /dev/null
 
 wget -O ~/Library/Application\ Support/minecraft/mods/LiquidBounce1.8.9.jar henrydatei.bplaced.net/alts/data/LiquidBounce1.8.9.jar
 

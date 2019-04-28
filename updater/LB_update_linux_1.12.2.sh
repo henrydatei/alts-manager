@@ -1,4 +1,4 @@
-curl http://henrydatei.bplaced.net/alts/vollerzugriff.php >> /dev/null
+curl http://henrydatei.bplaced.net/alts/ >> /dev/null
 
 cd ~/.minecraft/instances/liquidbounce1.12/LiquidBounce-1.12.2
 rm accounts.json

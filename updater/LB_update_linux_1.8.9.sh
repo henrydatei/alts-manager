@@ -1,4 +1,4 @@
-curl http://henrydatei.bplaced.net/alts/vollerzugriff.php >> /dev/null
+curl http://henrydatei.bplaced.net/alts/ >> /dev/null
 
 cd ~/.minecraft/instances/liquidbounce1.8.8/mods
 rm LiquidBounce1.8.9.jar

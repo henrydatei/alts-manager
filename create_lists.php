@@ -1,4 +1,5 @@
 <?php
+include('dbconnect.php');
 // friends.json generator
 $handle=fopen("data/friends.json", w);
 for ($a=0; $a<($anzahl-2) ; $a++) {
@@ -6,11 +7,13 @@ for ($a=0; $a<($anzahl-2) ; $a++) {
 	fwrite($handle, $inhalt);
 	fwrite($handle, "\n");
 }
-fwrite($handle, "Tarummel:Tarummel");
-fwrite($handle, "\n");
-fwrite($handle, "The_MaximusVA:The_MaximusVA");
-fwrite($handle, "\n");
-fclose($handle);
+$sql = "SELECT * FROM `main_accounts` WHERE `only_friendlist` = 1";
+$back = mysqli_query($db, $sql);
+while ($row = mysqli_fetch_array($back)) {
+	$friendname = $row['username'];
+	fwrite($handle, "$friendname:$friendname");
+	fwrite($handle, "\n");
+}
 
 // accounts.json generator
 $accName=array();
