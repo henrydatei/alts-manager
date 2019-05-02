@@ -39,5 +39,5 @@ $time = time();
 fwrite($f,"$time");
 fclose($f);
 
-header("Location: http://henrydatei.bplaced.net/alts/index?alt=$alt&server=$server&perma=$perma");
+header("Location: http://henrydatei.bplaced.net/alts/index.php?alt=$alt&server=$server&perma=$perma");
 ?>
