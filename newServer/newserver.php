@@ -14,7 +14,7 @@ $sql = "UPDATE `alts` SET `server` = \"$server\" WHERE `id` = (SELECT MAX(`id`) 
 $back = mysqli_query($db, $sql);
 
 // for automatic update
-$f = fopen('lastupdate.txt','w');
+$f = fopen('../lastupdate.txt','w');
 $time = time();
 fwrite($f,"$time");
 fclose($f);

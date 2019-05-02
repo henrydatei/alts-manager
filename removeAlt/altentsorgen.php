@@ -13,22 +13,15 @@ $username = $row['username'];
 $password = $row['password'];
 $into_remove_db = "INSERT INTO `removed_alts` (`id`, `username`, `password`, `displayed_name`, `date`) VALUES (NULL, '$username', '$password', '$alt', '$today');";
 
-print $ausaccounts;
-print "<br />";
-print $ausmaindb;
-print "<br />";
-print $into_remove_db;
-print "<br />";
-
 mysqli_query($db,$ausaccounts);
 mysqli_query($db,$ausmaindb);
 mysqli_query($db,$into_remove_db);
 
 // for automatic update
-$f = fopen('lastupdate.txt','w');
+$f = fopen('../lastupdate.txt','w');
 $time = time();
 fwrite($f,"$time");
 fclose($f);
 
-print "Alt $alt erfolgreich gel&ouml;scht";
+header("Location: ../");
 ?>
