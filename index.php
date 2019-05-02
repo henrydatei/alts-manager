@@ -29,6 +29,7 @@ include("create_lists.php");
   							<li><a href="newAlt/">Neuer Alt</a></li>
   							<li><a href="newServer/">Neuer Server</a></li>
   							<li><a href="removeAlt/">Alt l&ouml;schen</a></li>
+								<li><a href="removeServer/">Server l&ouml;schen</a></li>
   						</ul>
   					</td>
   					<form action="eintragen.php" method="post">
