@@ -1,25 +1,3 @@
-<?php
-include("../dbconnect.php");
-
-$alts=array();
-$namen=mysqli_query($db, "DESCRIBE `alts` ");
-while($infos=mysqli_fetch_array($namen)) {
-	array_push($alts,$infos[Field]);
-}
-print_r($alts);
-print "<br />";
-$anzahl=count($alts);
-print $anzahl;
-
-$mains = array();
-$sql = "SELECT * FROM `main_accounts` WHERE `only_friendlist` = 0";
-$back = mysqli_query($db, $sql);
-while ($row = mysqli_fetch_array($back)) {
-	$mains[] = $row['username'];
-}
-$anzahl_mains = count($mains);
-?>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
 
@@ -49,15 +27,6 @@ $anzahl_mains = count($mains);
 						<td>Server:</td>
 						<td><input type="text" name="server" size="15" /></td>
 					</tr>
-					<?php
-					for($j=0;$j<=($anzahl-($anzahl_mains + 1));$j++) {
-						$aktuell=$alts[$j];
-						print "<tr>";
-						print "<td>Bann von $alts[$j]</td>";
-						print "<td><input type=\"text\" name=\"$aktuell\" size=\"15\" /></td>";
-						print "</tr>";
-					}
-					?>
 					<tr>
 						<td></td>
 						<td><input type="submit" name="s" value="absenden" /></td>

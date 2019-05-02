@@ -1,7 +1,7 @@
 <?php
 include("../dbconnect.php");
 
-$alt=$_GET['altweg'];
+$alt = $_GET['altweg'];
 
 $ausaccounts = "DELETE FROM `henrydatei`.`accounts` WHERE `accounts`.`displayed_name` = '$alt'";
 $ausmaindb = "ALTER TABLE `alts` DROP `$alt`";
@@ -25,7 +25,7 @@ mysqli_query($db,$ausmaindb);
 mysqli_query($db,$into_remove_db);
 
 // for automatic update
-$f=fopen('lastupdate.txt','w');
+$f = fopen('lastupdate.txt','w');
 $time = time();
 fwrite($f,"$time");
 fclose($f);

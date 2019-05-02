@@ -1,29 +1,7 @@
 <?php
 include("dbconnect.php");
 include("functions.php");
-
-$alts = array();
-$namen = mysqli_query($db, "DESCRIBE `alts` ");
-while($infos = mysqli_fetch_array($namen)) {
-	array_push($alts,$infos[Field]);
-}
-$anzahl = count($alts);
-
-$servers = array();
-$sql = "SELECT `server` FROM `alts`";
-$back = mysqli_query($db, $sql);
-while ($row = mysqli_fetch_array($back)) {
-  $servers[] = $row['server'];
-}
-$anzahl_server = count($servers);
-
-$mains = array();
-$sql = "SELECT * FROM `main_accounts` WHERE `only_friendlist` = 0";
-$back = mysqli_query($db, $sql);
-while ($row = mysqli_fetch_array($back)) {
-	$mains[] = $row['username'];
-}
-$anzahl_mains = count($mains);
+include("create_arrays.php");
 
 // Listen erzeugen
 include("create_lists.php");
@@ -62,11 +40,11 @@ include("create_lists.php");
   									<td>
   										<select name="alt">
   											<<?php
-  												for ($l = 0; $l < ($anzahl-$anzahl_mains); $l++) {
-  													if ($alts[$l] == $_GET['alt']) {
-  														print "<option selected>$alts[$l]</option>";
+  												for ($l = 0; $l < $numberOfAllAccounts; $l++) {
+  													if ($all_accounts[$l] == $_GET['alt']) {
+  														print "<option selected>$all_accounts[$l]</option>";
   													} else {
-  														print "<option>$alts[$l]</option>";
+  														print "<option>$all_accounts[$l]</option>";
   													}
 
   												}
@@ -130,23 +108,23 @@ include("create_lists.php");
 
       <?php
 			// Entbannung von abgelaufenen Bans
-      for ($i = 0; $i < $anzahl-($anzahl_mains + 1); $i++) {
+      for ($i = 0; $i < $numberOfAllAccounts; $i++) {
         // einmal durch alle Alts laufen
         $serverid = 0;
-        $sql = "SELECT `$alts[$i]` FROM `alts`";
+        $sql = "SELECT `$all_accounts[$i]` FROM `alts`";
         $back = mysqli_query($db, $sql);
         while ($row = mysqli_fetch_array($back)) {
-          $ban_ends = strtotime($row[$alts[$i]]);
-          if (time() > $ban_ends && $row[$alts[$i]] != "" && $row[$alts[$i]] != "9999-12-31 23:59:59") {
+          $ban_ends = strtotime($row[$all_accounts[$i]]);
+          if (time() > $ban_ends && $row[$all_accounts[$i]] != "" && $row[$all_accounts[$i]] != "9999-12-31 23:59:59") {
             print "<div class=\"message\">";
-            print "$alts[$i] wurde auf $servers[$serverid] entbannt.";
+            print "$all_accounts[$i] wurde auf $servers[$serverid] entbannt.";
             print "</div>";
 
             $sql = "SELECT `id` FROM `alts` WHERE `server` = '$servers[$serverid]'";
             $back = mysqli_query($db, $sql);
             $row = mysqli_fetch_array($back);
             $serverID = $row['id'];
-            $weg="UPDATE `henrydatei`.`alts` SET `$alts[$i]` = NULL WHERE `alts`.`id` = $serverID";
+            $weg="UPDATE `henrydatei`.`alts` SET `$all_accounts[$i]` = NULL WHERE `alts`.`id` = $serverID";
             $wegres=mysqli_query($db, $weg);
           }
           $serverid++;
@@ -190,8 +168,8 @@ include("create_lists.php");
 							$back = mysqli_query($db, $sql);
 							$row = mysqli_fetch_array($back);
 
-							for ($j=0; $j < $anzahl - $anzahl_mains; $j++) {
-							  $current_alt = $alts[$j];
+							for ($j=0; $j < $numberOfAllAccounts; $j++) {
+							  $current_alt = $all_accounts[$j];
 							  if ($row["$current_alt"] == "") {
 							    // alt ist frei
 									$free = $free + 1;
@@ -209,7 +187,7 @@ include("create_lists.php");
 							$freeArray[] = $free;
 							$tempArray[] = $temp;
 							$permaArray[] = $perma;
-							$rgbvalues = calcRGBlogistisch($anzahl - $anzahl_mains, $perma, $temp, $free);
+							$rgbvalues = calcRGBlogistisch($numberOfAllAccounts, $perma, $temp, $free);
               print "<th style=\"background-color: rgba($rgbvalues[0],$rgbvalues[1],$rgbvalues[2],0.5);\">$servers[$i]</th>";
 							//print "<th>$servers[$i]</th>";
             }
@@ -223,23 +201,23 @@ include("create_lists.php");
 					$anzahlPermaBans = 0;
 					$gesamteTempBanZeit = 0;
 					$anzahlFrei = 0;
-          for ($i = 0; $i < $anzahl-$anzahl_mains; $i++) {
+          for ($i = 0; $i < $numberOfAllAccounts; $i++) {
             // einmal durch alle Alts laufen
-            $sql = "SELECT `$alts[$i]`,`server` FROM `alts`";
+            $sql = "SELECT `$all_accounts[$i]`,`server` FROM `alts`";
             $back = mysqli_query($db, $sql);
             print "<tr>";
-            print "<td>$alts[$i]</td>";
+            print "<td>$all_accounts[$i]</td>";
             while ($row = mysqli_fetch_array($back)) {
-              $banZelle = banZelle($row[$alts[$i]]);
+              $banZelle = banZelle($row[$all_accounts[$i]]);
               print "<td style=\"background-color: $banZelle[0];\" id=\"zelle\">$banZelle[1]</td>";
 							if ($banZelle[2] == 1) {
 								// Alt nur temp gebannt -> zum Array hinzufügen, damit dies später die nächsten Entbannungen anzeigen kann
-								$zeiten[] = strtotime($row[$alts[$i]]);
-						    $zeitenalts[] = $alts[$i];
+								$zeiten[] = strtotime($row[$all_accounts[$i]]);
+						    $zeitenalts[] = $all_accounts[$i];
 						    $zeitenserver[] = $row['server'];
 
 								$anzahlTempBans = $anzahlTempBans + 1;
-								$gesamteTempBanZeit = $gesamteTempBanZeit + abs(strtotime($row[$alts[$i]]) - time());
+								$gesamteTempBanZeit = $gesamteTempBanZeit + abs(strtotime($row[$all_accounts[$i]]) - time());
 							}
 							if ($banZelle[2] == 0) {
 								$anzahlFrei = $anzahlFrei + 1;
@@ -289,7 +267,7 @@ include("create_lists.php");
 					<table align="center">
 						<tr>
 							<td>Alts insgesamt:</td>
-							<td><?php print $anzahl - $anzahl_mains; ?> (abzüglich <?php print $anzahl_mains; ?> Main-Accounts)</td>
+							<td><?php print $numberOfAllAccounts; ?> (abzüglich <?php print $anzahl_mains; ?> Main-Accounts)</td>
 						</tr>
 						<tr>
 							<td>Anzahl freie Pl&auml;tze:</td>
