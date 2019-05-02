@@ -28,5 +28,5 @@ if(!$db)
 ```
 2. Erstelle auf dem Webserver ein Verzeichnis mit dem Namen `alts`.
 3. Kopiere alle Daten in dieses Verzeichnis.
-4. Im Wiki haben wir ein Skript für die Einrichtung der Datenbanken veröffentlicht. Lade es dir herunter, modifiziere es entsprechend der Anleitung im Wiki und führe es in der Weboberfläche deines MySQL-Servers aus.
+4. Im [Wiki](https://github.com/henrydatei/alts-manager/wiki/Datenbank-Einrichtung) haben wir ein Skript für die Einrichtung der Datenbanken veröffentlicht. Lade es dir herunter, modifiziere es entsprechend der Anleitung im Wiki und führe es in der Weboberfläche deines MySQL-Servers aus.
 5. Du kannst nun unter `http://deine-domain.endung/alts` die Verwaltung aufrufen und alles nach deinen Wünschen einrichten
