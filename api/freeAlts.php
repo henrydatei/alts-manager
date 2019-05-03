@@ -23,7 +23,8 @@ for ($i=2; $i < $anzahl - 2; $i++) {
     $username = $zugangsdaten['username'];
     $password = $zugangsdaten['password'];
     $name = $zugangsdaten['displayed_name'];
-    print "$username:$password:$name<br>";
+    print "$username:$password:$name";
+		print "<br>";
   }
 }
  ?>
