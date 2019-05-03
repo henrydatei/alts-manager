@@ -1,5 +1,5 @@
 <?php
-include("dbconnect.php");
+include("../dbconnect.php");
 
 $alts=array();
 $namenderalts=mysqli_query($db, "DESCRIBE `alts` ");
@@ -9,7 +9,7 @@ while($infos=mysqli_fetch_array($namenderalts)) {
 $anzahl=count($alts);
 
 // Datei einlesen
-$input=file_get_contents('out.txt');
+$input=file_get_contents('../out.txt');
 if ($input == "") {
   print "Keine Datei gefunden";
 }

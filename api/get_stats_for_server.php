@@ -1,5 +1,5 @@
 <?php
-include('dbconnect.php');
+include('../dbconnect.php');
 $free = 0;
 $temp = 0;
 $perma = 0;

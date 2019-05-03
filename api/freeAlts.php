@@ -1,5 +1,5 @@
 <?php
-include("dbconnect.php");
+include("../dbconnect.php");
 $alts=array();
 $namen=mysqli_query($db, "DESCRIBE `alts` ");
 while($infos=mysqli_fetch_array($namen)) {

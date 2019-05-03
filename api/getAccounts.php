@@ -1,5 +1,5 @@
 <?php
-include('dbconnect.php');
+include('../dbconnect.php');
 $sql = "SELECT * FROM `accounts`";
 $back = mysqli_query($db, $sql);
 while ($row = mysqli_fetch_array($back)) {
