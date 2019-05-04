@@ -206,7 +206,11 @@ include("create_lists.php");
             // einmal durch alle Alts laufen
             $sql = "SELECT `$all_accounts[$i]`,`server` FROM `alts`";
             $back = mysqli_query($db, $sql);
-            print "<tr>";
+            if ($i == $anzahl_mains - 1) {
+              print "<tr class=\"after_main_accounts\">";
+            } else {
+              print "<tr>";
+            }
             print "<td>$all_accounts[$i]</td>";
             while ($row = mysqli_fetch_array($back)) {
               $banZelle = banZelle($row[$all_accounts[$i]]);

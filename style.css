@@ -99,3 +99,6 @@ th {
   text-align: center;
   line-height: 1.5;
 }
+.after_main_accounts {
+  border-bottom: 2px solid Black;
+}
