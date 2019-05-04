@@ -3,7 +3,7 @@ include("../dbconnect.php");
 
 $alt = $_GET['altweg'];
 
-$ausaccounts = "DELETE FROM `henrydatei`.`accounts` WHERE `accounts`.`displayed_name` = '$alt'";
+$ausaccounts = "DELETE FROM `accounts` WHERE `accounts`.`displayed_name` = '$alt'";
 $ausmaindb = "ALTER TABLE `alts` DROP `$alt`";
 $today = date("Y-m-d");
 $sql = "SELECT * FROM `accounts` WHERE `displayed_name` = '$alt'";

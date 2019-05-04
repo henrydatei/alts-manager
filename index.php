@@ -125,7 +125,7 @@ include("create_lists.php");
             $back = mysqli_query($db, $sql);
             $row = mysqli_fetch_array($back);
             $serverID = $row['id'];
-            $weg="UPDATE `henrydatei`.`alts` SET `$all_accounts[$i]` = NULL WHERE `alts`.`id` = $serverID";
+            $weg="UPDATE `alts` SET `$all_accounts[$i]` = NULL WHERE `alts`.`id` = $serverID";
             $wegres=mysqli_query($db, $weg);
           }
           $serverid++;

@@ -29,7 +29,7 @@ $res=mysqli_query($db, $sqlid);
 $resid=mysqli_fetch_object($res);
 $id=$resid->id;
 
-$sql="UPDATE `henrydatei`.`alts` SET `$alt` = $zeit WHERE `alts`.`id` =$id";
+$sql="UPDATE `alts` SET `$alt` = $zeit WHERE `alts`.`id` =$id";
 
 $result=mysqli_query($db, $sql);
 
