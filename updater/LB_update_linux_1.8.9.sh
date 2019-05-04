@@ -1,4 +1,4 @@
-curl http://henrydatei.bplaced.net/alts/ >> /dev/null
+curl http://deine-domain.de/alts/ >> /dev/null
 
 cd ~/.minecraft/instances/liquidbounce1.8.8/mods
 rm LiquidBounce1.8.9.jar
@@ -19,25 +19,25 @@ cd ..
 rm servers.dat
 rm options.txt
 rm optionsof.txt
-wget http://henrydatei.bplaced.net/alts/data/accounts.json -P ~/.minecraft/instances/liquidbounce1.8.8/LiquidBounce-1.8
-wget http://henrydatei.bplaced.net/alts/data/friends.json -P ~/.minecraft/instances/liquidbounce1.8.8/LiquidBounce-1.8
-wget http://henrydatei.bplaced.net/alts/data/values.json -P ~/.minecraft/instances/liquidbounce1.8.8/LiquidBounce-1.8
-wget http://henrydatei.bplaced.net/alts/data/clickgui.json -P ~/.minecraft/instances/liquidbounce1.8.8/LiquidBounce-1.8
-wget http://henrydatei.bplaced.net/alts/data/modules.json -P ~/.minecraft/instances/liquidbounce1.8.8/LiquidBounce-1.8
-wget http://henrydatei.bplaced.net/alts/data/hud.json -P ~/.minecraft/instances/liquidbounce1.8.8/LiquidBounce-1.8
-wget http://henrydatei.bplaced.net/alts/data/xray.json -P ~/.minecraft/instances/liquidbounce1.8.8/LiquidBounce-1.8
-wget http://henrydatei.bplaced.net/alts/data/proxies.json -P ~/.minecraft/instances/liquidbounce1.8.8/LiquidBounce-1.8
+wget http://deine-domain.de/alts/data/accounts.json -P ~/.minecraft/instances/liquidbounce1.8.8/LiquidBounce-1.8
+wget http://deine-domain.de/alts/data/friends.json -P ~/.minecraft/instances/liquidbounce1.8.8/LiquidBounce-1.8
+wget http://deine-domain.de/alts/data/values.json -P ~/.minecraft/instances/liquidbounce1.8.8/LiquidBounce-1.8
+wget http://deine-domain.de/alts/data/clickgui.json -P ~/.minecraft/instances/liquidbounce1.8.8/LiquidBounce-1.8
+wget http://deine-domain.de/alts/data/modules.json -P ~/.minecraft/instances/liquidbounce1.8.8/LiquidBounce-1.8
+wget http://deine-domain.de/alts/data/hud.json -P ~/.minecraft/instances/liquidbounce1.8.8/LiquidBounce-1.8
+wget http://deine-domain.de/alts/data/xray.json -P ~/.minecraft/instances/liquidbounce1.8.8/LiquidBounce-1.8
+wget http://deine-domain.de/alts/data/proxies.json -P ~/.minecraft/instances/liquidbounce1.8.8/LiquidBounce-1.8
 
-wget http://henrydatei.bplaced.net/alts/data/servers.dat -P ~/.minecraft/instances/liquidbounce1.8.8
-wget http://henrydatei.bplaced.net/alts/data/options.txt -P ~/.minecraft/instances/liquidbounce1.8.8
-wget http://henrydatei.bplaced.net/alts/data/optionsof.txt -P ~/.minecraft/instances/liquidbounce1.8.8
+wget http://deine-domain.de/alts/data/servers.dat -P ~/.minecraft/instances/liquidbounce1.8.8
+wget http://deine-domain.de/alts/data/options.txt -P ~/.minecraft/instances/liquidbounce1.8.8
+wget http://deine-domain.de/alts/data/optionsof.txt -P ~/.minecraft/instances/liquidbounce1.8.8
 
-wget http://henrydatei.bplaced.net/alts/data/LiquidBounce1.8.9.jar -P ~/.minecraft/instances/liquidbounce1.8.8/mods
-wget http://henrydatei.bplaced.net/alts/data/settings/mineplex.txt -P ~/.minecraft/instances/liquidbounce1.8.8/LiquidBounce-1.8/settings
-wget http://henrydatei.bplaced.net/alts/data/settings/minesucht.txt -P ~/.minecraft/instances/liquidbounce1.8.8/LiquidBounce-1.8/settings
-wget http://henrydatei.bplaced.net/alts/data/settings/rewinside.txt -P ~/.minecraft/instances/liquidbounce1.8.8/LiquidBounce-1.8/settings
-wget http://henrydatei.bplaced.net/alts/data/settings/teamkyudo.txt -P ~/.minecraft/instances/liquidbounce1.8.8/LiquidBounce-1.8/settings
-wget http://henrydatei.bplaced.net/alts/data/settings/gc.txt -P ~/.minecraft/instances/liquidbounce1.8.8/LiquidBounce-1.8/settings
+wget http://deine-domain.de/alts/data/LiquidBounce1.8.9.jar -P ~/.minecraft/instances/liquidbounce1.8.8/mods
+wget http://deine-domain.de/alts/data/settings/mineplex.txt -P ~/.minecraft/instances/liquidbounce1.8.8/LiquidBounce-1.8/settings
+wget http://deine-domain.de/alts/data/settings/minesucht.txt -P ~/.minecraft/instances/liquidbounce1.8.8/LiquidBounce-1.8/settings
+wget http://deine-domain.de/alts/data/settings/rewinside.txt -P ~/.minecraft/instances/liquidbounce1.8.8/LiquidBounce-1.8/settings
+wget http://deine-domain.de/alts/data/settings/teamkyudo.txt -P ~/.minecraft/instances/liquidbounce1.8.8/LiquidBounce-1.8/settings
+wget http://deine-domain.de/alts/data/settings/gc.txt -P ~/.minecraft/instances/liquidbounce1.8.8/LiquidBounce-1.8/settings
 cd ~/.minecraft/instances/liquidbounce1.8.8/LiquidBounce-1.8/settings
 mv mineplex.txt mineplex
 mv minesucht.txt minesucht
