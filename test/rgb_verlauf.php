@@ -1,5 +1,5 @@
 <?php
-include('functions.php');
+include('../functions.php');
 $NumberAccounts = 38;
 
 print "<table style=\"border-collapse: collapse; border: 1px solid black;\">";
