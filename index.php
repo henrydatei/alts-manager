@@ -13,6 +13,7 @@ include("create_lists.php");
     <link href="style.css" type="text/css" rel="stylesheet" />
     <title>Der organisierte Hacker</title>
 		<script src="autoupdate.js" charset="utf-8" defer="defer"></script>
+    <script src="javascript.js" charset="utf-8" defer="defer"></script>
 		<link rel="shortcut icon" href="media/favicon.ico" />
   </head>
   <body>
@@ -211,7 +212,10 @@ include("create_lists.php");
             } else {
               print "<tr>";
             }
-            print "<td>$all_accounts[$i]</td>";
+            print "<td onclick=\"copyToClipboard('$all_accounts[$i]')\">";
+            print "$all_accounts[$i]";
+            print "<input type=\"hidden\" value=\"$all_accounts[$i]\" id=\"$all_accounts[$i]\"/>";
+            print "</td>";
             while ($row = mysqli_fetch_array($back)) {
               $banZelle = banZelle($row[$all_accounts[$i]]);
               print "<td style=\"background-color: $banZelle[0];\" id=\"zelle\">$banZelle[1]</td>";
