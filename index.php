@@ -212,7 +212,7 @@ include("create_lists.php");
             } else {
               print "<tr>";
             }
-            print "<td onclick=\"copyToClipboard('$all_accounts[$i]')\">";
+            print "<td onclick=\"copyToClipboard('$all_accounts[$i]')\" class=\"cursor\">";
             print "$all_accounts[$i]";
             print "<input type=\"hidden\" value=\"$all_accounts[$i]\" id=\"$all_accounts[$i]\"/>";
             print "</td>";

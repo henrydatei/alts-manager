@@ -71,6 +71,9 @@ main {
   margin-bottom: 20px;
   text-align: center;
 }
+.cursor {
+  cursor: pointer;
+}
 #text {
     left: 20px;
     right: 20px;
