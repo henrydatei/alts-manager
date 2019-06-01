@@ -5,8 +5,8 @@ Diese Webseite verwaltet die Banns von verschiedenen Minecraft-Servern für vers
 ### Features
 Die folgende Liste an Features ist unvollständig, wir haben hier die wichtigsten aufgelistet
 - Anzeige aller Banns aller Accounts auf einen Blick
-- Hinzufügen/Löschen von Banns per Hand oder per API
-- Hinzufügen/Löschen von Accounts und Servern per Hand oder per API
+- Hinzufügen/Löschen von [Banns](https://github.com/henrydatei/alts-manager/wiki/API:-eintragen_get) per Hand oder per API
+- Hinzufügen/Löschen von [Accounts](https://github.com/henrydatei/alts-manager/wiki/API:-Accounts-hinzufügen-und-entfernen) und [Servern](https://github.com/henrydatei/alts-manager/wiki/API:-Server-hinzufügen-und-entfernen) per Hand oder per API
 - automatische Synchronisation der Webseite, falls diese von mehreren Benutzern gleichzeitig geöffnet ist
 - automatisches Löschen der temporären Banns, wenn diese abgelaufen sind
 - Anzeige der Accounts, die als nächstes frei werden
