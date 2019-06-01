@@ -108,6 +108,21 @@ include("create_lists.php");
         <p></p><p></p><p></p>
   		</div>
 
+      <div class="options">
+        <table>
+          <tr>
+            <td>Partymode: </td>
+            <td>
+              <select id="partymode">
+                <option selected>/party </option>
+                <option>/party invite </option>
+                <option>kein Party Prefix</option>
+              </select>
+            </td>
+          </tr>
+        </table>
+      </div>
+
       <?php
 			// Entbannung von abgelaufenen Bans
       for ($i = 0; $i < $numberOfAllAccounts; $i++) {
@@ -212,7 +227,7 @@ include("create_lists.php");
             } else {
               print "<tr>";
             }
-            print "<td onclick=\"copyToClipboard('$all_accounts[$i]')\" class=\"cursor\">";
+            print "<td onclick=\"buildParty('$all_accounts[$i]')\" class=\"cursor\">";
             print "$all_accounts[$i]";
             print "<input type=\"hidden\" value=\"$all_accounts[$i]\" id=\"$all_accounts[$i]\"/>";
             print "</td>";
