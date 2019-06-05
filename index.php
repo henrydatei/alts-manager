@@ -117,8 +117,13 @@ include("create_lists.php");
                 <option selected>/party </option>
                 <option>/party invite </option>
                 <option>kein Party Prefix</option>
-              </select>
+              </select> + <i>Accountname</i>
             </td>
+          </tr>
+          <tr>
+            <td>Skins: </td>
+            <td id="showSkins"><button onclick="showAllSkins()">alle Skins zeigen (dauert lange)</button></td>
+            <td id="hideSkins"><button onclick="unshowAllSkins()">alle Skins verstecken</button></td>
           </tr>
         </table>
       </div>
@@ -227,7 +232,7 @@ include("create_lists.php");
             } else {
               print "<tr>";
             }
-            print "<td onclick=\"buildParty('$all_accounts[$i]')\" class=\"cursor\">";
+            print "<td onclick=\"buildParty('$all_accounts[$i]')\" class=\"cursor\" id=\"$all_accounts[$i]\">";
             print "$all_accounts[$i]";
             print "<input type=\"hidden\" value=\"$all_accounts[$i]\" id=\"$all_accounts[$i]\"/>";
             print "</td>";
@@ -354,4 +359,14 @@ include("create_lists.php");
 			</section>
     </main>
   </body>
+  <!-- Zeug für javascript !-->
+  <footer class="unsichtbar">
+    <?php
+    $AccountNamenString = $all_accounts[0];
+    for ($i=1; $i <= $numberOfAllAccounts - 1; $i++) {
+      $AccountNamenString = $AccountNamenString." ".$all_accounts[$i];
+    }
+     ?>
+    <input type="hidden" name="accountList" id="accountList" value="<?php print $AccountNamenString; ?>">
+  </footer>
 </html>

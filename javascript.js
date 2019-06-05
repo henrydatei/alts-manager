@@ -24,3 +24,42 @@ function copyToClipboard(account) {
   document.execCommand("copy");
   document.getElementById(account).type = "hidden";
 }
+
+function showSkin(account) {
+  var br = document.createElement('br');
+  var iframe = document.createElement('iframe');
+
+  br.id = account + "Br";
+  iframe.className = "skin";
+  iframe.src = "https://minotar.net/body/" + account + "/50.png";
+  iframe.id = account + "Skin";
+
+  document.getElementById(account).append(br);
+  document.getElementById(account).append(br);
+  document.getElementById(account).append(iframe);
+}
+
+function unshowSkin(account) {
+  var iframe = document.getElementById(account + "Skin");
+  iframe.parentNode.removeChild(iframe);
+  var br = document.getElementById(account + "Br");
+  br.parentNode.removeChild(br);
+}
+
+function showAllSkins() {
+  var liste = document.getElementById('accountList').value.split(" ");
+  for (var i = 0; i < liste.length; i++) {
+    showSkin(liste[i]);
+  }
+  document.getElementById('hideSkins').style.display = "block";
+  document.getElementById('showSkins').style.display = "none";
+}
+
+function unshowAllSkins() {
+  var liste = document.getElementById('accountList').value.split(" ");
+  for (var i = 0; i < liste.length; i++) {
+    unshowSkin(liste[i]);
+  }
+  document.getElementById('hideSkins').style.display = "none";
+  document.getElementById('showSkins').style.display = "block";
+}

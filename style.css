@@ -80,6 +80,14 @@ main {
   margin-top: 5px;
   padding: 10px;
 }
+.skin {
+  border: 0px;
+  height: 100px;
+  width: 50px;
+}
+.unsichtbar {
+  display: none;
+}
 #text {
     left: 20px;
     right: 20px;
@@ -100,6 +108,12 @@ th {
 	padding: 5px;
 	text-align: center;
 	color: Black;
+}
+#showSkins {
+  display: block;
+}
+#hideSkins {
+  display: none;
 }
 .ueberschrift {
   text-align: center;
