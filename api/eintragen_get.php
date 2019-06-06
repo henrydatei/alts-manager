@@ -15,6 +15,12 @@ $dauer=$_GET['dauer'];
 $perm=$_GET['perma'];
 $anzahl=$_GET['anzahl'];
 
+// vorheringen Bann auslesen
+$sql = "SELECT `$alt` FROM `alts` WHERE `server` = '$server'";
+$back = mysqli_query($db, $sql);
+$row = mysqli_fetch_array($back);
+$bann_vorher = $row["$alt"];
+
 if($perm=='') $perma=0;
 else $perma=1;
 
@@ -36,4 +42,15 @@ $result=mysqli_query($db, $sql);
 print "Alt: $alt<br />";
 print "Server: $server<br />";
 print "Endtime: $zeit";
+
+// Eintrag in history-Datenbank machen
+$datum = date("d.m.Y", time());
+$uhrzeit = date("H:i", time());
+$ip = $_SERVER['REMOTE_ADDR'];
+$useragent = $_SERVER['HTTP_USER_AGENT'];
+$account = "API";
+$action = "bannaenderung";
+$bann_nachher = $zeit;
+$sql = "INSERT INTO `history` (`id`, `datum`, `uhrzeit`, `ip`, `useragent`, `account`, `action`, `alt`, `main`, `bann_vorher`, `bann_nachher`, `server`) VALUES (NULL, '$datum', '$uhrzeit', '$ip', '$useragent', '$account', '$action', '$alt', NULL, '$bann_vorher', $bann_nachher, '$server')";
+mysqli_query($db, $sql);
 ?>

@@ -15,6 +15,12 @@ $dauer=$_POST['dauer'];
 $perm=$_POST['perma'];
 $anzahl=$_POST['anzahl'];
 
+// vorheringen Bann auslesen
+$sql = "SELECT `$alt` FROM `alts` WHERE `server` = '$server'";
+$back = mysqli_query($db, $sql);
+$row = mysqli_fetch_array($back);
+$bann_vorher = $row["$alt"];
+
 if($perm=='') $perma=0;
 else $perma=1;
 
@@ -32,6 +38,17 @@ $id=$resid->id;
 $sql="UPDATE `alts` SET `$alt` = $zeit WHERE `alts`.`id` =$id";
 
 $result=mysqli_query($db, $sql);
+
+// Eintrag in history-Datenbank machen
+$datum = date("d.m.Y", time());
+$uhrzeit = date("H:i", time());
+$ip = $_SERVER['REMOTE_ADDR'];
+$useragent = $_SERVER['HTTP_USER_AGENT'];
+$account = "Webseite";
+$action = "bannaenderung";
+$bann_nachher = $zeit;
+$sql = "INSERT INTO `history` (`id`, `datum`, `uhrzeit`, `ip`, `useragent`, `account`, `action`, `alt`, `main`, `bann_vorher`, `bann_nachher`, `server`) VALUES (NULL, '$datum', '$uhrzeit', '$ip', '$useragent', '$account', '$action', '$alt', NULL, '$bann_vorher', $bann_nachher, '$server')";
+mysqli_query($db, $sql);
 
 // for automatic update
 $f=fopen('lastupdate.txt','w');
