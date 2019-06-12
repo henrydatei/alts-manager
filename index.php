@@ -17,9 +17,9 @@ include("create_lists.php");
 		<link rel="shortcut icon" href="media/favicon.ico" />
   </head>
   <body>
-    <div id="header">
-  		<div align="center" id="header-schrift">Der organisierte Hacker</div>
-  	</div>
+    <header>
+      <div align="center" id="header-schrift">Der organisierte Hacker</div>
+    </header>
 
     <main>
       <div id="anleitung">
@@ -109,7 +109,7 @@ include("create_lists.php");
   		</div>
 
       <div class="options">
-        <table class="linkeSpalte">
+        <table>
           <tr>
             <td>Partymode: </td>
             <td>
@@ -121,7 +121,7 @@ include("create_lists.php");
             </td>
           </tr>
         </table>
-        <table class="rechteSpalte">
+        <table>
           <tr>
             <td>Skins: </td>
             <td id="showSkins"><button onclick="showAllSkins()">alle Skins zeigen (dauert lange)</button></td>

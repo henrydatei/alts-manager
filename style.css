@@ -1,48 +1,30 @@
-html, body
-{
-    font-family: Helvetica;
-    background-color: #FAFAFA;
+html, body {
+  font-family: Helvetica;
+  background-color: #FAFAFA;
+  margin: 0px;
+  padding: 0px;
 }
-#header {
-    width: 100%;
-    height: 100px;
-    background-color: #58D3F7;
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    position: absolute;
+header {
+  width: 100%;
+  height: 100px;
+  background-color: #58D3F7;
 }
 #header-schrift {
-    font-size: 50px;
-    line-height: 100px;
-}
-main {
-    background-color: #E6E6E6;
-    top: 120px;
-    left: 20px;
-    right: 20px;
-    position: absolute;
-    bottom: 0px;
-    z-index: 1;
-}
-#main {
-    background-color: #E6E6E6;
-    top: 120px;
-    left: 20px;
-    right: 20px;
-    position: absolute;
-    bottom: 0px;
-    z-index: 1;
+  font-size: 50px;
+  line-height: 100px;
 }
 #anleitung {
-    left: 20px;
-    top: 20px;
-    background-color: #E6E6E6;
-    left: 20px;
-    z-index: 2;
+  margin: 20px;
+  background-color: #E6E6E6;
 }
 #anleitung ul {
   line-height: 1.5;
+}
+.options {
+  margin: 20px;
+  padding: 10px;
+  background-color: #E6E6E6;
+  column-count: 2;
 }
 .message {
   padding: 10px;
@@ -74,19 +56,6 @@ main {
 .cursor {
   cursor: pointer;
 }
-.options {
-  border: 2px solid black;
-  margin-bottom: 5px;
-  margin-top: 5px;
-  padding: 10px;
-}
-.linkeSpalte {
-  margin-left: 5%;
-  float: left;
-}
-.rechteSpalte {
-  margin-left: 80%;
-}
 .skin {
   border: 0px;
   height: 100px;
@@ -99,10 +68,8 @@ main {
   display: none;
 }
 #text {
-    left: 20px;
-    right: 20px;
-    bottom: 0px;
-    background-color: #E6E6E6;
+  margin: 20px;
+  background-color: #E6E6E6;
 }
 #bantabelle {
   border-collapse: collapse;
@@ -130,6 +97,10 @@ th {
 }
 #hideLogin {
   display: none;
+}
+section {
+  margin: 20px;
+  padding: 1px;
 }
 .ueberschrift {
   text-align: center;
