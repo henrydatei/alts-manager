@@ -63,3 +63,21 @@ function unshowAllSkins() {
   document.getElementById('hideSkins').style.display = "none";
   document.getElementById('showSkins').style.display = "block";
 }
+
+function showUserPass() {
+  var liste = document.getElementsByClassName('userpass');
+  for (var i = 0; i < liste.length; i++) {
+    liste[i].style.display = 'block';
+  }
+  document.getElementById('hideLogin').style.display = "block";
+  document.getElementById('showLogin').style.display = "none";
+}
+
+function hideUserPass() {
+  var liste = document.getElementsByClassName('userpass');
+  for (var i = 0; i < liste.length; i++) {
+    liste[i].style.display = 'none';
+  }
+  document.getElementById('hideLogin').style.display = "none";
+  document.getElementById('showLogin').style.display = "block";
+}

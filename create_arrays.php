@@ -27,4 +27,17 @@ $anzahl_mains = count($mains);
 $all_accounts = array();
 $all_accounts = array_merge($mains,$alts);
 $numberOfAllAccounts = count($all_accounts);
+
+$usernames = array();
+$passwords = array();
+for ($i = 0; $i < $anzahl_mains; $i++) {
+	$usernames[] = $mains[$i];
+	$passwords[] = "***";
+}
+$sql = "SELECT `username`, `password` FROM `accounts`";
+$back = mysqli_query($db, $sql);
+while ($row = mysqli_fetch_array($back)) {
+	$usernames[] = $row['username'];
+	$passwords[] = $row['password'];
+}
  ?>

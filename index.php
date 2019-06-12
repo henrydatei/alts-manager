@@ -109,7 +109,7 @@ include("create_lists.php");
   		</div>
 
       <div class="options">
-        <table>
+        <table class="linkeSpalte">
           <tr>
             <td>Partymode: </td>
             <td>
@@ -120,10 +120,17 @@ include("create_lists.php");
               </select> + <i>Accountname</i>
             </td>
           </tr>
+        </table>
+        <table class="rechteSpalte">
           <tr>
             <td>Skins: </td>
             <td id="showSkins"><button onclick="showAllSkins()">alle Skins zeigen (dauert lange)</button></td>
             <td id="hideSkins"><button onclick="unshowAllSkins()">alle Skins verstecken</button></td>
+          </tr>
+          <tr>
+            <td>Login-Daten: </td>
+            <td id="showLogin"><button onclick="showUserPass()">alle Login-Daten zeigen</button></td>
+            <td id="hideLogin"><button onclick="hideUserPass()">alle Login-Daten verstecken</button></td>
           </tr>
         </table>
       </div>
@@ -234,6 +241,8 @@ include("create_lists.php");
             }
             print "<td onclick=\"buildParty('$all_accounts[$i]')\" class=\"cursor\" id=\"$all_accounts[$i]\">";
             print "$all_accounts[$i]";
+            print "<br class=\"userpass\">";
+            print "<span class=\"userpass\">$usernames[$i]:$passwords[$i]</span>";
             print "<input type=\"hidden\" value=\"$all_accounts[$i]\" id=\"$all_accounts[$i]\"/>";
             print "</td>";
             while ($row = mysqli_fetch_array($back)) {

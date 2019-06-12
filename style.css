@@ -80,12 +80,22 @@ main {
   margin-top: 5px;
   padding: 10px;
 }
+.linkeSpalte {
+  margin-left: 5%;
+  float: left;
+}
+.rechteSpalte {
+  margin-left: 80%;
+}
 .skin {
   border: 0px;
   height: 100px;
   width: 50px;
 }
 .unsichtbar {
+  display: none;
+}
+.userpass {
   display: none;
 }
 #text {
@@ -113,6 +123,12 @@ th {
   display: block;
 }
 #hideSkins {
+  display: none;
+}
+#showLogin {
+  display: block;
+}
+#hideLogin {
   display: none;
 }
 .ueberschrift {
