@@ -19,11 +19,11 @@ include("../create_arrays.php");
 </head>
 
 <body>
-	<div id="header">
+	<header>
 		<div align="center" id="header-schrift">Der organisierte Hacker</div>
-	</div>
+	</header>
 
-	<div id="main">
+	<main>
 		<div id="text" align="center">
 			<h2>vorhandenen Server l&ouml;schen</h2>
 			<form method="get" action="removeserver.php">
@@ -45,6 +45,6 @@ include("../create_arrays.php");
 				</table>
 			</form>
 		</div>
-	</div>
+	</main>
 </body>
 </html>

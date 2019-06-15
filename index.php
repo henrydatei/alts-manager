@@ -243,7 +243,7 @@ include("create_lists.php");
             print "$all_accounts[$i]";
             print "<br class=\"userpass\">";
             print "<span class=\"userpass\">$usernames[$i]:$passwords[$i]</span>";
-            print "<input type=\"hidden\" value=\"$all_accounts[$i]\" id=\"$all_accounts[$i]\"/>";
+            print "<input type=\"hidden\" value=\"$all_accounts[$i]\" id=\"$all_accounts[$i]Party\"/>";
             print "</td>";
             while ($row = mysqli_fetch_array($back)) {
               $banZelle = banZelle($row[$all_accounts[$i]]);

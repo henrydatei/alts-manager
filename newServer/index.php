@@ -14,11 +14,11 @@
 </head>
 
 <body>
-	<div id="header">
+	<header>
 		<div align="center" id="header-schrift">Der organisierte Hacker</div>
-	</div>
+	</header>
 
-	<div id="main">
+	<main>
 		<div id="text" align="center">
 			<h2>neuen Server eintragen</h2>
 			<form method="get" action="newserver.php">
@@ -34,6 +34,6 @@
 				</table>
 			</form>
 		</div>
-	</div>
+	</main>
 </body>
 </html>

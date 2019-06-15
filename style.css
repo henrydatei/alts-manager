@@ -31,8 +31,7 @@ header {
   border: 2px solid green;
   background-color: lime;
   z-index: 2;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin: 20px;
   text-align: center;
 }
 .temporaer {
@@ -40,8 +39,7 @@ header {
   border: 2px solid orange;
   background-color: yellow;
   z-index: 2;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin: 20px;
   text-align: center;
 }
 .permanent {
@@ -49,8 +47,7 @@ header {
   border: 2px solid darkred;
   background-color: red;
   z-index: 2;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin: 20px;
   text-align: center;
 }
 .cursor {
@@ -66,6 +63,7 @@ header {
 }
 .userpass {
   display: none;
+  font-size: 10px;
 }
 #text {
   margin: 20px;

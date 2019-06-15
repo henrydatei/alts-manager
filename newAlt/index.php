@@ -14,11 +14,11 @@
 </head>
 
 <body>
-	<div id="header">
+	<header>
 		<div align="center" id="header-schrift">Der organisierte Hacker</div>
-	</div>
+	</header>
 
-	<div id="main">
+	<main>
 		<div id="text" align="center">
 			<h2>neuen Alt eintragen</h2>
 			<form method="get" action="newalt.php">
@@ -38,6 +38,6 @@
 				</table>
 			</form>
 		</div>
-	</div>
+	</main>
 </body>
 </html>

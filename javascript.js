@@ -6,23 +6,23 @@ function buildParty(account) {
   } else {
     partycommand = partymode + " " + account;
   }
-  document.getElementById(account).value = partycommand;
-  document.getElementById(account).type = "text";
-  document.getElementById(account).focus();
-  document.getElementById(account).select();
+  document.getElementById(account + "Party").value = partycommand;
+  document.getElementById(account + "Party").type = "text";
+  document.getElementById(account + "Party").focus();
+  document.getElementById(account + "Party").select();
   document.execCommand("copy");
-  document.getElementById(account).type = "hidden";
+  document.getElementById(account + "Party").type = "hidden";
 
   // Zurücksetzen
-  document.getElementById(account).value = account;
+  document.getElementById(account + "Party").value = account;
 }
 
 function copyToClipboard(account) {
-  document.getElementById(account).type = "text";
-  document.getElementById(account).focus();
-  document.getElementById(account).select();
+  document.getElementById(account + "Party").type = "text";
+  document.getElementById(account + "Party").focus();
+  document.getElementById(account + "Party").select();
   document.execCommand("copy");
-  document.getElementById(account).type = "hidden";
+  document.getElementById(account + "Party").type = "hidden";
 }
 
 function showSkin(account) {
