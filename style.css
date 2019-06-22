@@ -110,3 +110,10 @@ section {
 .after_main_accounts {
   border-bottom: 2px solid Black;
 }
+footer {
+  text-align: center;
+  margin: 10px;
+}
+hr {
+  margin-top: 50px;
+}

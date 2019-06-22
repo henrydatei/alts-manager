@@ -367,9 +367,15 @@ include("create_lists.php");
 				</div>
 			</section>
     </main>
+    <hr>
+    <footer>
+      Made by henrydatei and cl0rm |
+      <a href="https://github.com/henrydatei/alts-manager" target="_blank">GitHub</a> |
+      2017 - <?php print date("Y",time()); ?>
+    </footer>
   </body>
   <!-- Zeug für javascript !-->
-  <footer class="unsichtbar">
+  <div class="unsichtbar">
     <?php
     $AccountNamenString = $all_accounts[0];
     for ($i=1; $i <= $numberOfAllAccounts - 1; $i++) {
@@ -377,5 +383,5 @@ include("create_lists.php");
     }
      ?>
     <input type="hidden" name="accountList" id="accountList" value="<?php print $AccountNamenString; ?>">
-  </footer>
+  </div>
 </html>
