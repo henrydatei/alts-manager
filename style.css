@@ -13,12 +13,20 @@ header {
   font-size: 50px;
   line-height: 100px;
 }
-#anleitung {
+.control {
   margin: 20px;
+  padding: 10px;
   background-color: #E6E6E6;
+  column-count: 3;
 }
-#anleitung ul {
+.control ul {
   line-height: 1.5;
+  break-inside: avoid-column;
+}
+.control table {
+  break-inside: avoid-column;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 .options {
   margin: 20px;

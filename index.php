@@ -22,91 +22,73 @@ include("create_lists.php");
     </header>
 
     <main>
-      <div id="anleitung">
-  			<table align="center" style="width: 80%">
-  				<tr>
-  					<td>
-  						<ul>
-  							<li><a href="newAlt/">Neuer Alt</a></li>
-  							<li><a href="newServer/">Neuer Server</a></li>
-  							<li><a href="removeAlt/">Alt l&ouml;schen</a></li>
-								<li><a href="removeServer/">Server l&ouml;schen</a></li>
-  						</ul>
-  					</td>
-  					<form action="eintragen.php" method="post">
-  						<td>
-  							<h3>neuer Bann:</h3>
-  							<table>
-  								<tr>
-  									<td>Alt:</td>
-  									<td>
-  										<select name="alt">
-  											<<?php
-  												for ($l = 0; $l < $numberOfAllAccounts; $l++) {
-  													if ($all_accounts[$l] == $_GET['alt']) {
-  														print "<option selected>$all_accounts[$l]</option>";
-  													} else {
-  														print "<option>$all_accounts[$l]</option>";
-  													}
+      <div class="control">
+        <ul>
+          <li><a href="newAlt/">Neuer Alt</a></li>
+          <li><a href="newServer/">Neuer Server</a></li>
+          <li><a href="removeAlt/">Alt löschen</a></li>
+          <li><a href="removeServer/">Server löschen</a></li>
+        </ul>
+        <table align="center">
+          <tr>
+            <td>Alt:</td>
+            <td colspan="2">
+              <select name="alt">
+                <<?php
+                  for ($l = 0; $l < $numberOfAllAccounts; $l++) {
+                    if ($all_accounts[$l] == $_GET['alt']) {
+                      print "<option selected>$all_accounts[$l]</option>";
+                    } else {
+                      print "<option>$all_accounts[$l]</option>";
+                    }
 
-  												}
-  											 ?>
-  										</select>
-  									</td>
-  								</tr>
-  								<tr>
-  									<td>Server:</td>
-  									<td>
-  										<select name="server">
-  											<?php
-  												$anfrage = mysqli_query($db, "SELECT `server` FROM `alts`");
-  												while ($zeile=mysqli_fetch_object($anfrage)) {
-  													$aktuellerServer = $zeile->server;
-  													if ($aktuellerServer == $_GET['server']) {
-  														print "<option selected>$aktuellerServer</option>";
-  													} else {
-  														print "<option>$aktuellerServer</option>";
-  													}
-  												}
-  											 ?>
-  										</select>
-  									</td>
-  								</tr>
-  							</table>
-  						</td>
-  						<td>
-  							<table>
-  								<tr>
-  									<td>Datum:</td>
-  									<td><input type="text" name="dauer" placeholder="JJJJ-MM-DD HH:MM:SS" /></td>
-  								</tr>
-  								<tr>
-  									<td>Permanent:</td>
-
-  									<?php
-  									if ($_GET['perma'] == 1) {
-  										print "<td><input type=\"checkbox\" name=\"perma\" value=\"perma\" checked /></td>";
-  									} else {
-  										print "<td><input type=\"checkbox\" name=\"perma\" value=\"perma\" /></td>";
-  									}
-
-  									?>
-  								</tr>
-  								<tr>
-  									<td>Anzahl Tage:</td>
-  									<td><input type="text" name="anzahl" placeholder="auch gebr. Zahlen mit Komma möglich" /></td>
-  								</tr>
-  								<tr>
-  									<td></td>
-  									<td><input type="submit" name="s" value="absenden" /></td>
-  								</tr>
-  							</table>
-  						</td>
-  					</form>
-  				</tr>
-  			</table>
-        <p></p><p></p><p></p>
-  		</div>
+                  }
+                 ?>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>Server:</td>
+            <td colspan="2">
+              <select name="server">
+                <?php
+                  $anfrage = mysqli_query($db, "SELECT `server` FROM `alts`");
+                  while ($zeile=mysqli_fetch_object($anfrage)) {
+                    $aktuellerServer = $zeile->server;
+                    if ($aktuellerServer == $_GET['server']) {
+                      print "<option selected>$aktuellerServer</option>";
+                    } else {
+                      print "<option>$aktuellerServer</option>";
+                    }
+                  }
+                 ?>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>Datum:</td>
+            <td colspan="2"><input type="text" name="dauer" placeholder="JJJJ-MM-DD HH:MM:SS" /></td>
+          </tr>
+          <tr>
+            <td>Anzahl Tage:</td>
+            <td><input type="text" name="anzahl" placeholder="auch gebr. Zahlen mit Komma möglich" /></td>
+            <?php
+            if ($_GET['perma'] == 1) {
+              print "<td><input type=\"checkbox\" name=\"perma\" value=\"perma\" checked /> Permanent</td>";
+            } else {
+              print "<td><input type=\"checkbox\" name=\"perma\" value=\"perma\" /> Permanent</td>";
+            }
+            ?>
+          </tr>
+          <tr>
+            <td></td>
+            <td colspan="2"><input type="submit" name="s" value="Bann eintragen" /></td>
+          </tr>
+        </table>
+        <ul>
+          <li><a href="verlauf/">Verlauf</a></li>
+        </ul>
+      </div>
 
       <div class="options">
         <table>
