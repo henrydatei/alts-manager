@@ -29,7 +29,7 @@ include("create_lists.php");
           <li><a href="removeAlt/">Alt löschen</a></li>
           <li><a href="removeServer/">Server löschen</a></li>
         </ul>
-        <table align="center">
+        <form method="post" action="eintragen.php"><table align="center">
           <tr>
             <td>Alt:</td>
             <td colspan="2">
@@ -84,7 +84,7 @@ include("create_lists.php");
             <td></td>
             <td colspan="2"><input type="submit" name="s" value="Bann eintragen" /></td>
           </tr>
-        </table>
+        </table></form>
         <ul>
           <li><a href="verlauf/">Verlauf</a></li>
         </ul>
