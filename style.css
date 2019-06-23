@@ -21,17 +21,22 @@ header {
 }
 .control {
   margin: 20px;
-  padding: 10px;
+  padding-top: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
   background-color: #E6E6E6;
   column-count: 3;
 }
-.control ul {
-  line-height: 1.5;
+.listen {
   break-inside: avoid-column;
 }
-.control table {
+.listen ul {
+  line-height: 1.5;
+  margin-top: 0;
+}
+.formular {
   break-inside: avoid-column;
-  padding-top: 15px;
   padding-bottom: 15px;
 }
 .options {
@@ -131,10 +136,3 @@ footer {
 hr {
   margin-top: 50px;
 }
-/* only Safari */
-not(html:first-child .selector {
-  .control > * {
-    display: inline-block;
-    width: 100%;
-  }
-})
