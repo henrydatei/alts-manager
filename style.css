@@ -131,3 +131,10 @@ footer {
 hr {
   margin-top: 50px;
 }
+/* only Safari */
+not(html:first-child .selector {
+  .control > * {
+    display: inline-block;
+    width: 100%;
+  }
+})
