@@ -1,3 +1,9 @@
+a:link {text-decoration: none; color: Black;}
+a:visited {text-decoration: none; color: Black;}
+a:focus { /* Deklarationen */ }
+a:hover {text-decoration: none; color: #0000D8 !important}
+a:active { /* Deklarationen */ }
+
 html, body {
   font-family: Helvetica;
   background-color: #FAFAFA;

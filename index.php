@@ -18,7 +18,7 @@ include("create_lists.php");
   </head>
   <body>
     <header>
-      <div align="center" id="header-schrift">Der organisierte Hacker</div>
+      <a href="index.php"><div align="center" id="header-schrift">Der organisierte Hacker</div></a>
     </header>
 
     <main>
@@ -87,6 +87,8 @@ include("create_lists.php");
         </table></form>
         <ul>
           <li><a href="verlauf/">Verlauf</a></li>
+          <li><a href="api/">API-Viewer</a></li>
+          <li><a href="data/settings/">localsettings-Viewer</a></li>
         </ul>
       </div>
 
