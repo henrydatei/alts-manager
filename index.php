@@ -97,7 +97,7 @@ include("create_lists.php");
         <div class="listen">
           <ul>
             <li><a href="verlauf/">Verlauf</a></li>
-            <li><a href="api/">API-Viewer</a></li>
+            <li><a href="api/">API-Explorer</a></li>
             <li><a href="data/settings/">localsettings-Viewer</a></li>
           </ul>
         </div>
