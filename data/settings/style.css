@@ -1,0 +1,42 @@
+.liste {
+  margin: 20px;
+  background-color: #E6E6E6;
+  padding: 10px;
+}
+.liste ul {
+  padding-left: 0px;
+}
+.liste li {
+  display: inline-block;
+  margin-right: 30px;
+}
+.viewer {
+  margin: 20px;
+  background-color: #E6E6E6;
+  padding: 10px;
+  height: 400px;
+}
+.viewer iframe {
+  background-color: white;
+  border: 0;
+  width: 100%;
+  height: 355px;
+}
+#loeschen {
+  background-color: orangered;
+  width: 150px;
+  height: 40px;
+  border-radius: 5px;
+  border-color: darkred;
+}
+.neu {
+  margin: 20px;
+  background-color: #E6E6E6;
+  padding: 10px;
+}
+#textareazeile {
+  display: none;
+}
+#absendezeile {
+  display: none;
+}
