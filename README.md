@@ -15,6 +15,8 @@ Die folgende Liste an Features ist unvollständig, wir haben hier die wichtigste
 - automatische Erstellung von Account-Listen und Friend-Listen
 - [Partymode](https://github.com/henrydatei/alts-manager/wiki/Partymode)
 - Anzeige der Skins auf Knopfdruck
+- Anzeige der Login-Daten auf Knopfdruck
+- Link zu einer Einführung in LiquidBounce (das Repo dazu findet sich [hier](https://github.com/henrydatei/Erste-Schritte-in-Liquidbounce))
 
 ### Installation
 Wir setzen voraus, dass du einen Webserver mit PHP und MySQL hast. Viele Webseite-Hoster haben so etwas kostenlos, wir sind sehr zufrieden mit [bplaced](https://www.bplaced.net).
