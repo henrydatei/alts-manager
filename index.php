@@ -357,8 +357,8 @@ include("create_lists.php");
 					<h3>Anfängerguide</h3>
 				</div>
 				<div class="section_text">
-					PDF-Version: <a href="media/Anfaengerguide.pdf">Anfaengerguide.pdf</a><br>
-					Version zum Editieren: <a href="https://drive.google.com/open?id=1tLHgeR2YrgrjGCbg_VvuUKD0uOCNOu_aXGCzkw0AqoY" target="_blank">https://drive.google.com/open?id=1tLHgeR2YrgrjGCbg_VvuUKD0uOCNOu_aXGCzkw0AqoY</a>
+					PDF-Version: <a href="media/Erste_Schritte_in_Liquidbounce.pdf" target="_blank">Erste_Schritte_in_Liquidbounce.pdf</a> oder <a href="https://www.overleaf.com/read/xkkgkzvytbkr" target="_blank">https://www.overleaf.com/read/xkkgkzvytbkr</a><br>
+					Version zum Editieren: <a href="https://www.overleaf.com/5457357878czmmcdzwgygw" target="_blank">https://www.overleaf.com/5457357878czmmcdzwgygw</a>
 				</div>
 			</section>
     </main>
