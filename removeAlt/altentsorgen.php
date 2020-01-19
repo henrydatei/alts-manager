@@ -2,7 +2,8 @@
 include("../dbconnect.php");
 include("../create_arrays.php");
 
-$alt = $_GET['altweg'];
+$alt = htmlentities($_GET['altweg'], ENT_QUOTES);
+$alt = mysqli_real_escape_string($db, $alt);
 
 if (in_array($alt, $mains)) {
   $main = 1;
@@ -27,8 +28,10 @@ mysqli_query($db,$into_remove_db);
 // Eintrag in history-Datenbank machen
 $datum = date("d.m.Y", time());
 $uhrzeit = date("H:i", time());
-$ip = $_SERVER['REMOTE_ADDR'];
-$useragent = $_SERVER['HTTP_USER_AGENT'];
+$ip = htmlentities($_SERVER['REMOTE_ADDR'], ENT_QUOTES);
+$ip = mysqli_real_escape_string($db, $ip);
+$useragent = htmlentities($_SERVER['HTTP_USER_AGENT'], ENT_QUOTES);
+$useragent = mysqli_real_escape_string($db, $useragent);
 $account = "Webseite/API";
 $action = "Alt weg";
 $sql = "INSERT INTO `history` (`id`, `datum`, `uhrzeit`, `ip`, `useragent`, `account`, `action`, `alt`, `main`, `bann_vorher`, `bann_nachher`, `server`) VALUES (NULL, '$datum', '$uhrzeit', '$ip', '$useragent', '$account', '$action', '$alt', $main, NULL, NULL, NULL)";

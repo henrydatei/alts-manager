@@ -9,11 +9,14 @@ function addtime($addtage) {
     return "'$endrichtig'";
 }
 
-$alt=$_GET['alt'];
-$server=$_GET['server'];
-$dauer=$_GET['dauer'];
-$perm=$_GET['perma'];
-$anzahl=$_GET['anzahl'];
+$alt = htmlentities($_POST['alt'], ENT_QUOTES);
+$alt = mysqli_real_escape_string($db, $alt);
+$server = htmlentities($_POST['server'], ENT_QUOTES);
+$server = mysqli_real_escape_string($db, $server);
+$dauer = htmlentities($_POST['dauer'], ENT_QUOTES);
+$dauer = mysqli_real_escape_string($db, $dauer);
+$perm = htmlentities($_POST['perma'], ENT_QUOTES);
+$anzahl = htmlentities($_POST['anzahl'], ENT_QUOTES);
 
 // vorheringen Bann auslesen
 $sql = "SELECT `$alt` FROM `alts` WHERE `server` = '$server'";
@@ -46,8 +49,10 @@ print "Endtime: $zeit";
 // Eintrag in history-Datenbank machen
 $datum = date("d.m.Y", time());
 $uhrzeit = date("H:i", time());
-$ip = $_SERVER['REMOTE_ADDR'];
-$useragent = $_SERVER['HTTP_USER_AGENT'];
+$ip = htmlentities($_SERVER['REMOTE_ADDR'], ENT_QUOTES);
+$ip = mysqli_real_escape_string($db, $ip);
+$useragent = htmlentities($_SERVER['HTTP_USER_AGENT'], ENT_QUOTES);
+$useragent = mysqli_real_escape_string($db, $useragent);
 $account = "API";
 $action = "bannaenderung";
 $bann_nachher = $zeit;

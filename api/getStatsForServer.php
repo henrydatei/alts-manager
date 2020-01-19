@@ -12,7 +12,9 @@ while($infos = mysqli_fetch_array($namen)) {
 $anzahl = count($alts);
 
 
-$server = $_GET['server'];
+$server = htmlentities($_GET['server'], ENT_QUOTES);
+$server = mysqli_real_escape_string($db, $server);
+
 $sql = "SELECT * FROM `alts` WHERE `server` = \"$server\"";
 $back = mysqli_query($db, $sql);
 $row = mysqli_fetch_array($back);

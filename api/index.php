@@ -35,7 +35,7 @@ include("../dbconnect.php");
                       $anfrage = mysqli_query($db, "SELECT `server` FROM `alts`");
                       while ($zeile=mysqli_fetch_object($anfrage)) {
                         $aktuellerServer = $zeile->server;
-                        if ($aktuellerServer == $_GET['server']) {
+                        if ($aktuellerServer == htmlentities($_GET['server'], ENT_QUOTES)) {
                           print "<option selected>$aktuellerServer</option>";
                         } else {
                           print "<option>$aktuellerServer</option>";
@@ -84,7 +84,7 @@ include("../dbconnect.php");
                       $anfrage = mysqli_query($db, "SELECT `server` FROM `alts`");
                       while ($zeile=mysqli_fetch_object($anfrage)) {
                         $aktuellerServer = $zeile->server;
-                        if ($aktuellerServer == $_GET['server']) {
+                        if ($aktuellerServer == htmlentities($_GET['server'], ENT_QUOTES)) {
                           print "<option selected>$aktuellerServer</option>";
                         } else {
                           print "<option>$aktuellerServer</option>";
@@ -107,7 +107,7 @@ include("../dbconnect.php");
         <code id="link">
           <?php
             if (isset($_POST['freeAlts'])) {
-              $server = $_POST['freeAlts_server'];
+              $server = htmlentities($_POST['freeAlts_server'], ENT_QUOTES);
               $link = "freeAlts.php?server=$server";
               print "/api/$link";
             }
@@ -116,7 +116,7 @@ include("../dbconnect.php");
               print "/api/$link";
             }
             if (isset($_POST['getStatsForServer'])) {
-              $server = $_POST['getStatsForServer_server'];
+              $server = htmlentities($_POST['getStatsForServer_server'], ENT_QUOTES);
               $link = "getStatsForServer.php?server=$server";
               print "/api/$link";
             }

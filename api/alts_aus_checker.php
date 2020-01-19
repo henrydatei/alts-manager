@@ -28,14 +28,14 @@ else {
     && $infos[2] !== 'name: null') {
       print_r($infos);
       print "<br />";
-      print "Username: ".substr($infos[4],10);
-      $usernames[] = substr($infos[4],10);
+      print "Username: ".htmlentities(substr($infos[4],10), ENT_QUOTES);
+      $usernames[] = htmlentities(substr($infos[4],10), ENT_QUOTES);
       print "<br />";
-      print "Passwort: ".substr($infos[5],10);
-      $passwords[] = substr($infos[5],10);
+      print "Passwort: ".htmlentities(substr($infos[5],10), ENT_QUOTES);
+      $passwords[] = htmlentities(substr($infos[5],10), ENT_QUOTES);
       print "<br />";
-      print "Name: ".substr($infos[2],6);
-      $namen[] = substr($infos[2],6);
+      print "Name: ".htmlentities(substr($infos[2],6), ENT_QUOTES);
+      $namen[] = htmlentities(substr($infos[2],6), ENT_QUOTES);
       print "<br />";
       print "<br />";
       print "<br />";
@@ -67,8 +67,11 @@ for ($a=0; $a < count($usernames) ; $a++) {
   } else {
     //Accounts-Datenbank
     $user = $usernames[$a];
+		$user = mysqli_real_escape_string($db, $user);
     $pass = $passwords[$a];
+		$pass = mysqli_real_escape_string($db, $pass);
     $name = $namen[$a];
+		$name = mysqli_real_escape_string($db, $name);
   	$adddb= "INSERT INTO `accounts`(`username`, `password`, `displayed_name`, `id`) VALUES ('$user','$pass','$name','')";
   	// Befehl durchführen / in DB eintragen
   	$einfugen = mysqli_query($db, $adddb);

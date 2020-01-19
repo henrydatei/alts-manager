@@ -40,7 +40,7 @@ include("create_lists.php");
                   <select name="alt">
                     <<?php
                       for ($l = 0; $l < $numberOfAllAccounts; $l++) {
-                        if ($all_accounts[$l] == $_GET['alt']) {
+                        if ($all_accounts[$l] == htmlentities($_GET['alt'], ENT_QUOTES)) {
                           print "<option selected>$all_accounts[$l]</option>";
                         } else {
                           print "<option>$all_accounts[$l]</option>";
@@ -59,7 +59,7 @@ include("create_lists.php");
                       $anfrage = mysqli_query($db, "SELECT `server` FROM `alts`");
                       while ($zeile=mysqli_fetch_object($anfrage)) {
                         $aktuellerServer = $zeile->server;
-                        if ($aktuellerServer == $_GET['server']) {
+                        if ($aktuellerServer == htmlentities($_GET['server'], ENT_QUOTES)) {
                           print "<option selected>$aktuellerServer</option>";
                         } else {
                           print "<option>$aktuellerServer</option>";
@@ -80,7 +80,7 @@ include("create_lists.php");
               <tr>
                 <td></td>
                 <?php
-                if ($_GET['perma'] == 1) {
+                if (htmlentities($_GET['perma'], ENT_QUOTES) == 1) {
                   print "<td><input type=\"checkbox\" name=\"perma\" value=\"perma\" checked /> Permanent</td>";
                 } else {
                   print "<td><input type=\"checkbox\" name=\"perma\" value=\"perma\" /> Permanent</td>";
@@ -158,9 +158,9 @@ include("create_lists.php");
 
 			<?php
 			// Message nachdem neuner Bann eingetragen wurde: Gelb: temporär, Rot: permanent
-			$gebannterAlt = $_GET['alt'];
-			$gebannterServer = $_GET['server'];
-			$permanent = $_GET['perma'];
+			$gebannterAlt = htmlentities($_GET['alt'], ENT_QUOTES);
+			$gebannterServer = htmlentities($_GET['server'], ENT_QUOTES);
+			$permanent = htmlentities($_GET['perma'], ENT_QUOTES);
 			if ($permanent == 1) {
 				// permanenter Bann -> rote Box
 				print "<div class=\"permanent\">";
