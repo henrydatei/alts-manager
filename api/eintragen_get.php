@@ -9,17 +9,18 @@ function addtime($addtage) {
     return "'$endrichtig'";
 }
 
-$alt = htmlentities($_POST['alt'], ENT_QUOTES);
-$alt = mysqli_real_escape_string($db, $alt);
-$server = htmlentities($_POST['server'], ENT_QUOTES);
-$server = mysqli_real_escape_string($db, $server);
-$dauer = htmlentities($_POST['dauer'], ENT_QUOTES);
-$dauer = mysqli_real_escape_string($db, $dauer);
-$perm = htmlentities($_POST['perma'], ENT_QUOTES);
-$anzahl = htmlentities($_POST['anzahl'], ENT_QUOTES);
+$alt = $_GET['alt'];
+$server = $_GET['server'];
+$dauer = $_GET['dauer'];
+$perm = $_GET['perma'];
+$anzahl = $_GET['anzahl'];
+
+print "Alt: $alt<br />";
+print "Server: $server<br />";
 
 // vorheringen Bann auslesen
 $sql = "SELECT `$alt` FROM `alts` WHERE `server` = '$server'";
+//print "SQL: $sql<br />";
 $back = mysqli_query($db, $sql);
 $row = mysqli_fetch_array($back);
 $bann_vorher = $row["$alt"];
@@ -42,17 +43,13 @@ $sql="UPDATE `alts` SET `$alt` = $zeit WHERE `alts`.`id` =$id";
 
 $result=mysqli_query($db, $sql);
 
-print "Alt: $alt<br />";
-print "Server: $server<br />";
 print "Endtime: $zeit";
 
 // Eintrag in history-Datenbank machen
 $datum = date("d.m.Y", time());
 $uhrzeit = date("H:i", time());
-$ip = htmlentities($_SERVER['REMOTE_ADDR'], ENT_QUOTES);
-$ip = mysqli_real_escape_string($db, $ip);
-$useragent = htmlentities($_SERVER['HTTP_USER_AGENT'], ENT_QUOTES);
-$useragent = mysqli_real_escape_string($db, $useragent);
+$ip = $_SERVER['REMOTE_ADDR'];
+$useragent = $_SERVER['HTTP_USER_AGENT'];
 $account = "API";
 $action = "bannaenderung";
 $bann_nachher = $zeit;
