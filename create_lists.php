@@ -1,7 +1,7 @@
 <?php
 include('dbconnect.php');
 // friends.json generator
-$handle=fopen("data/friends.json", w);
+$handle=fopen("data/friends.json", 'w');
 for ($a=0; $a<($anzahl-2) ; $a++) {
 	$inhalt=$alts[$a].":".$alts[$a];
 	fwrite($handle, $inhalt);
@@ -27,7 +27,7 @@ while($row = mysqli_fetch_array($query))
    $accPwd[] = $row['password'];
 }
 $accCount=count($accLogin);
-$handle2=fopen("data/accounts.json", w);
+$handle2=fopen("data/accounts.json", 'w');
 fwrite($handle2, "[");
 fwrite($handle2, "\n");
 fwrite($handle2, "\"MsBrony::\",");
@@ -44,7 +44,7 @@ fwrite($handle2, "]");
 fclose($handle2);
 
 // altliste.txt generator
-$handle3=fopen("altliste.txt", w);
+$handle3=fopen("altliste.txt", 'w');
 for ($b=0; $b<=($accCount-1) ; $b++) {
 	//$inhalt3= accLogin:accPwd
 	$inhalt3 = "$accLogin[$b]:$accPwd[$b] \n";
