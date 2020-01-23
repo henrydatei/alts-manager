@@ -2,6 +2,7 @@
 include("../dbconnect.php");
 include("../create_arrays.php");
 
+
 //Accounts-Datenbank
 $zugangsdaten = $_GET['LoginData'];
 $zugangsdaten = mysqli_real_escape_string($db, $zugangsdaten);
